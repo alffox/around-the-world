@@ -1,3 +1,16 @@
 .atw-box {
     border-style: solid;
 }
+
+.card {
+    display: inline-block;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
