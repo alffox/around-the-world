@@ -1,0 +1,225 @@
+{
+    "status": "ok",
+    "totalResults": 20,
+    "articles": [{
+        "source": {
+            "id": null,
+            "name": "Dispatch.com"
+        },
+        "author": "JD Malone",
+        "title": "Whole Foods to now offer delivery via Amazon's Prime Now",
+        "description": "Amazon's Prime Now service will now deliver thousands of Whole Foods items in Columbus — far beyond the small selection of items formerly available",
+        "url": "http://www.dispatch.com/news/20180829/whole-foods-to-now-offer-delivery-via-amazons-prime-now",
+        "urlToImage": "http://www.dispatch.com/storyimage/OH/20180829/NEWS/180828425/AR/0/AR-180828425.jpg",
+        "publishedAt": "2018-08-29T04:15:16Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Dispatch.com"
+        },
+        "author": "The Columbus Dispatch",
+        "title": "Audio | Scooter Mania in Columbus",
+        "description": "Dispatch reporters Rick Rouan and Mark Ferenchik talk about how the city of Columbus released its first regulations on motorized scooters Tuesday morning.",
+        "url": "http://www.dispatch.com/news/20180828/audio--scooter-mania-in-columbus",
+        "urlToImage": "http://www.dispatch.com/storyimage/OH/20180828/NEWS/180828444/AR/0/AR-180828444.jpg",
+        "publishedAt": "2018-08-29T04:15:16Z"
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Sara Ashley O'Brien",
+        "title": "Uber CEO reflects on one year at the company",
+        "description": "In an interview with CNNMoney, Uber CEO Dara Khosrowshahi discusses his first year leading the company, and looks towards its future.",
+        "url": "https://money.cnn.com/2018/08/29/technology/uber-ceo-dara-khosrowshahi-one-year-anniversary/index.html",
+        "urlToImage": "https://i2.cdn.turner.com/money/dam/assets/180827151330-uber-ceo-dara-file-780x439.jpg",
+        "publishedAt": "2018-08-29T04:01:00Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Forbes.com"
+        },
+        "author": "Steve Dennis",
+        "title": "Here's What Investors Are Missing About The Sears-Amazon Partnership",
+        "description": "The news that Sears is expanding its tire partnership with Amazon sent the company's shares sharply higher. For the most part, this is much ado about nothing as it does little to change the inevitable continuing decline of the storied retailer.",
+        "url": "https://www.forbes.com/sites/stevendennis/2018/08/28/heres-what-investors-are-missing-about-the-sears-amazon-partnership/",
+        "urlToImage": "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F2dbba33490ba483bb9194591ea0a99df%2F960x0.jpg%3Ffit%3Dscale",
+        "publishedAt": "2018-08-29T03:19:00Z"
+    }, {
+        "source": {
+            "id": "bloomberg",
+            "name": "Bloomberg"
+        },
+        "author": null,
+        "title": "China Traders Sell Record Hong Kong Stocks as Tencent Stings",
+        "description": null,
+        "url": "https://www.bloomberg.com/news/articles/2018-08-28/chinese-traders-sell-record-hong-kong-stocks-as-tencent-stings",
+        "urlToImage": null,
+        "publishedAt": "2018-08-29T01:47:01Z"
+    }, {
+        "source": {
+            "id": "business-insider",
+            "name": "Business Insider"
+        },
+        "author": "Reuters",
+        "title": "Amazon is preparing to roll out a new, free video streaming services for Fire TV users",
+        "description": "Amazon's new video service will reportedly have ads and be separate from its existing Prime Video.",
+        "url": "https://www.businessinsider.com/r-amazon-plans-new-video-app-for-fire-tv-users-the-information-2018-8",
+        "urlToImage": "https://amp.businessinsider.com/images/5b183b881ae66225008b4cd0-1334-667.jpg",
+        "publishedAt": "2018-08-29T01:18:45Z"
+    }, {
+        "source": {
+            "id": "bloomberg",
+            "name": "Bloomberg"
+        },
+        "author": null,
+        "title": "Musk's Rants Rekindle Concern About CEO's Troublesome Tweeting",
+        "description": null,
+        "url": "https://www.bloomberg.com/news/articles/2018-08-29/musk-s-rants-rekindle-concern-about-ceo-s-troublesome-tweeting",
+        "urlToImage": null,
+        "publishedAt": "2018-08-29T00:45:28Z"
+    }, {
+        "source": {
+            "id": "time",
+            "name": "Time"
+        },
+        "author": "Mahita Gajanan",
+        "title": "Steve Jobs' Widow Says His Daughter's Memoir Paints a Picture That Isn't 'the Husband and Father We Knew'",
+        "description": "",
+        "url": "http://time.com/5380968/steve-jobs-daughter-memoir-reaction/",
+        "urlToImage": "https://timedotcom.files.wordpress.com/2018/08/laurene-powell-jobs-small-fry.jpg?quality=85",
+        "publishedAt": "2018-08-28T23:13:13Z"
+    }, {
+        "source": {
+            "id": "business-insider",
+            "name": "Business Insider"
+        },
+        "author": "Troy Wolverton",
+        "title": "Donald Trump is right about Google — but for the wrong reason",
+        "description": "The basis for Donald Trump's broadside against Google — that it's purposefully shutting out positive news about him and conservative sites — appears unfounded. But his statement about the company's power is perfectly legitimate. And we really ought to do some…",
+        "url": "https://www.businessinsider.com/googles-control-of-the-search-market-deserves-more-scrutiny-2018-8",
+        "urlToImage": "https://amp.businessinsider.com/images/5b59de475c5e5224008b4678-960-480.jpg",
+        "publishedAt": "2018-08-28T22:22:36Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Therealdeal.com"
+        },
+        "author": "kevin-r",
+        "title": "Growth in home prices slowed across 20 major US metros in June",
+        "description": "The strong upward momentum in home prices seen across the country showed signs of slowing in June, according to the latest S&P CoreLogic Case-Shil",
+        "url": "https://therealdeal.com/2018/08/28/growth-in-home-prices-slowed-across-20-major-us-metros-in-june/",
+        "urlToImage": "https://therealdeal.com/wp-content/uploads/2018/08/200-vegas-new-york.jpg",
+        "publishedAt": "2018-08-28T22:06:22Z"
+    }, {
+        "source": {
+            "id": "the-new-york-times",
+            "name": "The New York Times"
+        },
+        "author": "https://www.nytimes.com/by/tiffany-hsu, https://www.nytimes.com/by/alexandra-alter",
+        "title": "Barnes & Noble, in Fight With Former CEO, Says He Was Fired for Sexual Harassment",
+        "description": "Until Tuesday, Barnes & Noble had only said that Demos Parneros was fired for violating policies, but a lawsuit filed by Mr. Parneros revealed more details.",
+        "url": "https://www.nytimes.com/2018/08/28/business/barnes-noble-ceo-sexual-harassment-lawsuit.html",
+        "urlToImage": "https://static01.nyt.com/images/2018/08/29/business/29BARNES1/merlin_140738805_5137d178-f0f0-4b05-8aa5-1f59b20da170-facebookJumbo.jpg",
+        "publishedAt": "2018-08-28T21:33:45Z"
+    }, {
+        "source": {
+            "id": "the-new-york-times",
+            "name": "The New York Times"
+        },
+        "author": null,
+        "title": "Wall Street Ekes Out Gains as Canada Takes Trade Spotlight",
+        "description": "The S&P 500 and the Nasdaq edged up to record closing highs for the third consecutive session as investors struggled over whether to take profits following a rally on positive developments in trade disputes which have vexed the markets.",
+        "url": "https://www.nytimes.com/reuters/2018/08/28/business/28reuters-usa-stocks.html",
+        "urlToImage": "https://static01.nyt.com/images/icons/t_logo_291_black.png",
+        "publishedAt": "2018-08-28T20:48:45Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Marketwatch.com"
+        },
+        "author": "Max A. Cherney",
+        "title": "Tilray sales double, thanks to more potent weed",
+        "description": "Strong weed helped Tilray Inc. roughly double its second-quarter sales, the company said Tuesday, in its first earnings report since the July initial public offering.",
+        "url": "https://www.marketwatch.com/story/tilray-sales-double-thanks-to-more-potent-weed-2018-08-28",
+        "urlToImage": "http://s.marketwatch.com/public/resources/MWimages/MW-GM028_tiilra_ZG_20180705143217.jpg",
+        "publishedAt": "2018-08-28T20:08:21Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Qz.com"
+        },
+        "author": "Leah Fessler",
+        "title": "A fake Warren Buffett Twitter account is spewing life advice—and it's amazing",
+        "description": "Regardless of who wrote this advice, we'd be smart to follow it.",
+        "url": "https://qz.com/work/1372337/a-fake-warren-buffett-twitter-account-is-spewing-life-advice-and-its-amazing/",
+        "urlToImage": "https://cms.qz.com/wp-content/uploads/2014/10/warren-buffett-women-fortune.jpg?quality=75&strip=all&w=1400",
+        "publishedAt": "2018-08-28T19:41:00Z"
+    }, {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "The Associated Press",
+        "title": "Electric car makers moving into Tesla's turf with new models",
+        "description": "Get breaking national and world news, broadcast video coverage, and exclusive interviews. Find the top news online at ABC news.",
+        "url": "https://abcnews.go.com/Business/wireStory/electric-car-makers-moving-teslas-turf-models-57456116",
+        "urlToImage": "https://s.abcnews.com/images/International/WireAP_cc506115c9024d06b5e1f59ecedbdbcf_16x9_992.jpg",
+        "publishedAt": "2018-08-28T19:38:00Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Thestreet.com"
+        },
+        "author": "Annie Gaus",
+        "title": "Best Buy's Reality Is More Complicated Than Just Losing to Amazon",
+        "description": "Best Buy reported slower online sales, but this doesn't necessarily mean the retailer is losing to Amazon. The relationship between the two companies is more complex than that....AMZN",
+        "url": "https://www.thestreet.com/investing/earnings/is-best-buy-losing-to-amazon-14696143",
+        "urlToImage": "http://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/7457ab90-5a0c-11e8-a5fd-f32a30d5d46d.png",
+        "publishedAt": "2018-08-28T19:28:28Z"
+    }, {
+        "source": {
+            "id": "the-wall-street-journal",
+            "name": "The Wall Street Journal"
+        },
+        "author": null,
+        "title": "Few Rivals Speak Out Against Sprint, T-Mobile Merger",
+        "description": null,
+        "url": "https://www.wsj.com/articles/few-rivals-speak-out-against-sprint-t-mobile-merger-1535482584",
+        "urlToImage": null,
+        "publishedAt": "2018-08-28T18:58:24Z"
+    }, {
+        "source": {
+            "id": "reuters",
+            "name": "Reuters"
+        },
+        "author": "Kit Rees",
+        "title": "Autos drive European shares up to two-week high after NAFTA deal",
+        "description": "European shares hit a two-week high after the United States and Mexico reached a trade agreement, though they gave back gains during the day to end flat, while autos stocks enjoyed a relief rally.",
+        "url": "https://www.reuters.com/article/us-europe-stocks/autos-drive-european-shares-up-to-two-week-high-after-nafta-deal-idUSKCN1LD0MQ",
+        "urlToImage": "https://s3.reutersmedia.net/resources/r/?m=02&d=20180828&t=2&i=1298180536&w=1200&r=LYNXNPEE7R0DK",
+        "publishedAt": "2018-08-28T16:21:43Z"
+    }, {
+        "source": {
+            "id": "the-wall-street-journal",
+            "name": "The Wall Street Journal"
+        },
+        "author": null,
+        "title": "US Consumer Confidence Surged in August to Near 18-Year High",
+        "description": null,
+        "url": "https://www.wsj.com/articles/u-s-consumer-confidence-surged-in-august-1535465989",
+        "urlToImage": null,
+        "publishedAt": "2018-08-28T14:57:46Z"
+    }, {
+        "source": {
+            "id": null,
+            "name": "Marketwatch.com"
+        },
+        "author": "Maria LaMagna",
+        "title": "One big reason people don't pay off their credit cards every month",
+        "description": "Recent research suggests it’s not because they don’t have enough money to pay off their cards.",
+        "url": "https://www.marketwatch.com/story/heres-one-common-reason-people-have-so-much-credit-card-debt-2018-08-28",
+        "urlToImage": "http://s.marketwatch.com/public/resources/MWimages/MW-FW846_AI_rob_ZG_20171023162412.jpg",
+        "publishedAt": "2018-08-28T13:21:03Z"
+    }]
+}

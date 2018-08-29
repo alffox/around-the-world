@@ -1,4 +1,4 @@
-$.ajax({
+/*$.ajax({
   url:
     `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${newsAPIKey}`,
   method: "GET",
@@ -8,6 +8,10 @@ $.ajax({
   success: function(data) {
     processData(data);
   }
+});*/
+
+$.getJSON("js/news.json", function(data) {
+    processData(data);
 });
 
 function processData(data) {
