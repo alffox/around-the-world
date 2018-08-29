@@ -1,0 +1,25 @@
+{
+    "locations": [{
+        "title": "Diamond Bar",
+        "continent": "Americas",
+        "country": "USA",
+        "country_code": "us",
+        "state": "California",
+        "language": "en",
+        "location": {
+            "lat": 34.028623,
+            "lng": -117.810337
+        }
+    }, {
+        "title": "Chicago",
+        "continent": "Americas",
+        "country": "USA",
+        "country_code": "us",
+        "state": "Illinois",
+        "language": "en",
+        "location": {
+            "lat": 41.878114,
+            "lng": -87.629798
+        }
+    }]
+}

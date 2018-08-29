@@ -1,3 +1,9 @@
+$.getJSON("js/locations.json", function(obj) {
+    //console.log(obj);
+});
+
+
+
 /*$.ajax({
   url:
     `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${newsAPIKey}`,
@@ -15,7 +21,7 @@ $.getJSON("js/news.json", function(data) {
 });
 
 function processData(data) {
-  var articleItems = [];
+  //var articleItems = [];
 
   for (var i = 0; i < data.articles.length; i++) {
     var author = data.articles[i].author;
@@ -36,6 +42,6 @@ function processData(data) {
     );
 
     $(".wrapper").append($author, $title, $description);
-    console.log(artUrl);
+    //console.log(artUrl);
   }
 }
