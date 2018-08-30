@@ -9,7 +9,7 @@ var octopus = {
 
     getLocations: function() {
         $.getJSON("js/locations.json", function(locations) {
-            view.renderLocationsButtons(locations);
+            view.renderLocations(locations);
         });
     },
 
@@ -34,7 +34,7 @@ var octopus = {
 
 var view = {
 
-    renderLocationsButtons: function(locations) {
+    renderLocations: function(locations) {
 
         for (var i = 0; i < locations.locations.length; i++) {
                 var places = locations.locations[i].title;
