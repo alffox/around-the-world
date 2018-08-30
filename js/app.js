@@ -8,14 +8,14 @@ var octopus = {
     },
 
     getLocations: function() {
-        $.getJSON("js/locations.json", function(obj) {
-            view.renderLocations(obj);
+        $.getJSON("js/locations.json", function(locations) {
+            view.renderLocations(locations);
         });
     },
 
     getNews: function() {
-        $.getJSON("js/news.json", function(data) {
-            view.renderNews(data);
+        $.getJSON("js/news.json", function(news) {
+            view.renderNews(news);
             //Actual method:
             /*$.ajax({
                   url:
@@ -34,12 +34,21 @@ var octopus = {
 
 var view = {
 
-    renderNews: function(data) {
-        for (var i = 0; i < data.articles.length; i++) {
-                var author = data.articles[i].author;
-                var title = data.articles[i].title;
-                var description = data.articles[i].description;
-                var artUrl = data.articles[i].url;
+    renderLocations: function(locations) {
+
+        for (var i = 0; i < locations.locations.length; i++) {
+                var places = locations.locations[i].title;
+
+                $('.location-tags').append('<span class="badge badge-secondary">' + places + '</span>');
+        }
+    },
+
+    renderNews: function(news) {
+        for (var i = 0; i < 10; i++) {
+                var author = news.articles[i].author;
+                var title = news.articles[i].title;
+                var description = news.articles[i].description;
+                var artUrl = news.articles[i].url;
 
                 var $author = $('<div class="author">Author: ' + author + "</div >");
                 var $title = $(
@@ -56,11 +65,8 @@ var view = {
             $(".wrapper").append($author, $title, $description);
             //console.log(artUrl);
         }
-    },
-
-    renderLocations: function(obj) {
-        console.log(obj);
     }
+
 };
 
 octopus.initData();
