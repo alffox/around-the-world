@@ -39,7 +39,9 @@ var view = {
         for (var i = 0; i < locations.locations.length; i++) {
                 var places = locations.locations[i].title;
 
-                $('.location-tags').append('<span class="badge badge-secondary">' + places + '</span>');
+
+
+                $('.location-tags').append('<button type="button" class="btn btn-primary">' + places + '</button>');
         }
     },
 
