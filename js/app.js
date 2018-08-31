@@ -60,7 +60,8 @@ var view = {
     },
 
     renderNews: function(news) {
-        $(".wrapper").empty();
+        var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');
+        $(".wrapper").empty().append($attribution);
 
         for (var i = 0; i < 10; i++) {
             var author = news.articles[i].author;
