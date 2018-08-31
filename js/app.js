@@ -54,8 +54,9 @@ var view = {
 
         for (var i = 0; i < locations.locations.length; i++) {
                 var place = locations.locations[i].title;
+                var country = locations.locations[i].country;
 
-                $('.location-tags').append('<button type="button" class="btn btn-primary">' + place + '</button>');
+                $('.location-tags').append('<button type="button" class="btn btn-primary">' + place + ', ' + country +'</button>');
             }
         },
 
