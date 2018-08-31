@@ -1,27 +1,312 @@
 {
-    "locations": [{
-        "title": "Diamond Bar",
-        "continent": "Americas",
-        "country": "USA",
-        "flag": "images/flags/us.svg",
-        "country_code": "us",
-        "state": "California",
-        "language": "en",
-        "location": {
+   "locations":[
+      {
+         "title": "Diamond Bar",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "California",
+         "state_code": "CA",
+         "language": "en",
+         "location": {
             "lat": 34.028623,
             "lng": -117.810337
-        }
-    }, {
-        "title": "Chicago",
-        "continent": "Americas",
-        "country": "USA",
-        "flag": "images/flags/ca.svg",
-        "country_code": "us",
-        "state": "Illinois",
-        "language": "en",
-        "location": {
+         }
+      },
+      {
+         "title": "Chicago",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "Illinois",
+         "state_code": "IL",
+         "language": "en",
+         "location": {
             "lat": 41.878114,
             "lng": -87.629798
-        }
-    }]
+         }
+      },
+      {
+         "title": "Hamilton",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "Ohio",
+         "state_code": "OH",
+         "language": "en",
+         "location": {
+            "lat": 39.399501,
+            "lng": -84.561335
+         }
+      },
+      {
+         "title": "Raleigh",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "North Carolina",
+         "state_code": "NC",
+         "language": "en",
+         "location": {
+            "lat": 35.77959,
+            "lng": -78.638179
+         }
+      },
+      {
+         "title": "Markham",
+         "continent": "Americas",
+         "country": "Canada",
+         "flag": "images/flags/ca.svg",
+         "country_code": "ca",
+         "state_name": "Ontario",
+         "state_code": "ON",
+         "language": "en",
+         "location": {
+            "lat": 43.8561,
+            "lng": -79.337019
+         }
+      },
+      {
+         "title": "Recife",
+         "continent": "Americas",
+         "country": "Brazil",
+         "flag": "images/flags/br.svg",
+         "country_code": "br",
+         "state_name": "Pernambuco",
+         "state_code": "PE",
+         "language": "pt",
+         "location": {
+            "lat": -8.054074,
+            "lng": -34.870849
+         }
+      },
+      {
+         "title": "São Paulo",
+         "continent": "Americas",
+         "country": "Brazil",
+         "flag": "images/flags/br.svg",
+         "country_code": "br",
+         "state_name": "São Paulo",
+         "state_code": "SP",
+         "language": "pt",
+         "location": {
+            "lat": -23.55052,
+            "lng": -46.633309
+         }
+      },
+      {
+         "title": "Eschborn",
+         "continent": "Europe",
+         "country": "Germany",
+         "flag": "images/flags/de.svg",
+         "country_code": "de",
+         "state_name": "Hesse",
+         "state_code": "",
+         "language": "de",
+         "location": {
+            "lat": 50.146747,
+            "lng": 8.561455
+         }
+      },
+      {
+         "title": "Madrid",
+         "continent": "Europe",
+         "country": "Spain",
+         "flag": "images/flags/es.svg",
+         "country_code": "es",
+         "state_name": "Community of Madrid",
+         "state_code": "",
+         "language": "es",
+         "location": {
+            "lat": 40.416775,
+            "lng": -3.70379
+         }
+      },
+      {
+         "title": "London",
+         "continent": "Europe",
+         "country": "United Kingdom",
+         "flag": "images/flags/gb.svg",
+         "country_code": "gb",
+         "state_name": "London",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 51.444581,
+            "lng": -0.335246
+         }
+      },
+      {
+         "title": "Dublin",
+         "continent": "Europe",
+         "country": "Ireland",
+         "flag": "images/flags/ie.svg",
+         "country_code": "ie",
+         "state_name": "Leinster",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 53.349805,
+            "lng": -6.26031
+         }
+      },
+      {
+         "title": "Concorezzo",
+         "continent": "Europe",
+         "country": "Italy",
+         "flag": "images/flags/it.svg",
+         "country_code": "it",
+         "state_name": "Monza Brianza",
+         "state_code": "MB",
+         "language": "it",
+         "location": {
+            "lat": 45.593397,
+            "lng": 9.336818
+         }
+      },
+      {
+         "title": "Budapest",
+         "continent": "Europe",
+         "country": "Hungary",
+         "flag": "images/flags/hu.svg",
+         "country_code": "hu",
+         "state_name": "Budapest",
+         "state_code": "",
+         "language": "hu",
+         "location": {
+            "lat": 47.497912,
+            "lng": 19.040235
+         }
+      },
+      {
+         "title": "Paris",
+         "continent": "Europe",
+         "country": "France",
+         "flag": "images/flags/fr.svg",
+         "country_code": "fr",
+         "state_name": "Île-de-France",
+         "state_code": "",
+         "language": "fr",
+         "location": {
+            "lat": 48.856614,
+            "lng": 2.352222
+         }
+      },
+      {
+         "title": "Leiden",
+         "continent": "Europe",
+         "country": "The Netherlands",
+         "flag": "images/flags/nl.svg",
+         "country_code": "nl",
+         "state_name": "South Holland",
+         "state_code": "",
+         "language": "nl",
+         "location": {
+            "lat": 52.160114,
+            "lng": 4.49701
+         }
+      },
+      {
+         "title": "Dalian",
+         "continent": "Asia-Pacific",
+         "country": "China",
+         "flag": "images/flags/cn.svg",
+         "country_code": "cn",
+         "state_name": "Liaoning",
+         "state_code": "",
+         "language": "cn",
+         "location": {
+            "lat": 38.914003,
+            "lng": 121.614682
+         }
+      },
+      {
+         "title": "Tokyo",
+         "continent": "Asia-Pacific",
+         "country": "Japan",
+         "flag": "images/flags/jp.svg",
+         "country_code": "jp",
+         "state_name": "",
+         "state_code": "",
+         "language": "jp",
+         "location": {
+            "lat": 35.689488,
+            "lng": 139.691706
+         }
+      },
+      {
+         "title": "Bangalore",
+         "continent": "Asia-Pacific",
+         "country": "India",
+         "flag": "images/flags/in.svg",
+         "country_code": "in",
+         "state_name": "Karnataka",
+         "state_code": "KA",
+         "language": "en",
+         "location": {
+            "lat": 12.971599,
+            "lng": 77.594563
+         }
+      },
+      {
+         "title": "Sydney",
+         "continent": "Asia-Pacific",
+         "country": "Australia",
+         "flag": "images/flags/au.svg",
+         "country_code": "au",
+         "state_name": "New South Wales",
+         "state_code": "NSW",
+         "language": "en",
+         "location": {
+            "lat": -33.86882,
+            "lng": 151.209296
+         }
+      },
+      {
+         "title": "Singapore",
+         "continent": "Asia-Pacific",
+         "country": "Singapore",
+         "flag": "images/flags/sg.svg",
+         "country_code": "sg",
+         "state_name": "",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 1.355379,
+            "lng": 103.867744
+         }
+      },
+      {
+         "title": "Dubai",
+         "continent": "Asia-Pacific",
+         "country": "United Arab Emirates",
+         "flag": "images/flags/ae.svg",
+         "country_code": "ae",
+         "state_name": "",
+         "state_code": "",
+         "language": "ar",
+         "location": {
+            "lat": 25.204849,
+            "lng": 55.270783
+         }
+      },
+      {
+         "title": "Casablanca",
+         "continent": "Africa",
+         "country": "Morocco",
+         "flag": "images/flags/ma.svg",
+         "country_code": "ma",
+         "state_name": "Casablanca-Settat",
+         "state_code": "",
+         "language": "ar",
+         "location": {
+            "lat": 33.57311,
+            "lng": -7.589843
+         }
+      }
+   ]
 }
