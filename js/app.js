@@ -10,7 +10,23 @@ var octopus = {
     getLocations: function() {
         $.getJSON("js/locations.json", function(locations) {
             view.renderLocations(locations);
+            octopus.setCurrentLocation(locations,0);//Diamond Bar is the default one
+            octopus.getclickedLocationData(locations);
         });
+    },
+
+    setCurrentLocation: function(locations,index) {
+            var clickedLocation = locations.locations[index].title;
+            console.log('Current location is:' + clickedLocation )
+    },
+
+    getclickedLocationData: function (locations) {
+        $('button').off('click').click(function(e) {
+
+            var clickedLocationIndexPos = $(e.target).index();
+
+            octopus.setCurrentLocation(locations,clickedLocationIndexPos)
+            });
     },
 
     getNews: function() {
@@ -37,11 +53,11 @@ var view = {
     renderLocations: function(locations) {
 
         for (var i = 0; i < locations.locations.length; i++) {
-                var places = locations.locations[i].title;
+                var place = locations.locations[i].title;
 
-                $('.location-tags').append('<button type="button" class="btn btn-primary">' + places + '</button>');
-        }
-    },
+                $('.location-tags').append('<button type="button" class="btn btn-primary">' + place + '</button>');
+            }
+        },
 
     renderNews: function(news) {
         for (var i = 0; i < 10; i++) {
