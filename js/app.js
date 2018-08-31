@@ -4,47 +4,47 @@ var octopus = {
 
     initData: function() {
         octopus.getLocations();
-        octopus.getNews();
     },
 
     getLocations: function() {
         $.getJSON("js/locations.json", function(locations) {
             view.renderLocations(locations);
-            octopus.setCurrentLocation(locations,0);//Diamond Bar is the default one
             octopus.getclickedLocationData(locations);
         });
     },
 
-    setCurrentLocation: function(locations,index) {
-            var clickedLocation = locations.locations[index].title;
-            console.log('Current location is:' + clickedLocation )
-    },
-
     getclickedLocationData: function (locations) {
-        $('button').off('click').click(function(e) {
+        $('button').click(function(e) {
 
             var clickedLocationIndexPos = $(e.target).index();
 
-            octopus.setCurrentLocation(locations,clickedLocationIndexPos)
+            octopus.setCurrentLocation(locations,clickedLocationIndexPos);
+
             });
     },
 
-    getNews: function() {
-        $.getJSON("js/news.json", function(news) {
-            view.renderNews(news);
+    setCurrentLocation: function(locations,index) {
+        var clickedLocation = locations.locations[index].title;
+        var clickedLocationCountryCode = locations.locations[index].country_code;
+        octopus.getNews(clickedLocationCountryCode);
+    },
+
+    getNews: function(clickedLocationCountryCode) {
+        //$.getJSON("js/news.json", function(news) {
+                    //});
             //Actual method:
-            /*$.ajax({
+            $.ajax({
                   url:
-                    `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${newsAPIKey}`,
+                    `https://newsapi.org/v2/top-headlines?country=${clickedLocationCountryCode}&apiKey=a1bb66430a7249f9a4aee6be1d91aa99`,
                   method: "GET",
+                  cache: false,
                   error: function() {
                     console.log("there was an error");
                   },
-                  success: function(data) {
-                    processData(data);
+                  success: function(news) {
+                    view.renderNews(news);
                   }
-                });*/
-        });
+                });
     }
 };
 
@@ -56,11 +56,13 @@ var view = {
                 var place = locations.locations[i].title;
                 var country = locations.locations[i].country;
 
-                $('.location-tags').append('<button type="button" class="btn btn-primary">' + place + ', ' + country +'</button>');
+                $('.location-tags').append('<button type="button" class="btn btn-primary m-1">' + place + ', ' + country +'</button>');
             }
-        },
+    },
 
     renderNews: function(news) {
+        $(".wrapper").empty();
+
         for (var i = 0; i < 10; i++) {
                 var author = news.articles[i].author;
                 var title = news.articles[i].title;
