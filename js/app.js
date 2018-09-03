@@ -29,6 +29,20 @@ var octopus = {
         octopus.getNews(clickedLocationCountryCode);
     },
 
+        //console.log(filteredAmericas);
+
+        /*var filteredEurope = locations.locations.filter(function(item){
+            return item.continent === "Europe";
+            });
+        var filteredAfrica = locations.locations.filter(function(item){
+            return item.continent === "Africa";
+            });
+        var filteredAsiaPacific = locations.locations.filter(function(item){
+            return item.continent === "Asia-Pacific";
+            });*/
+
+        //view.renderLocationsByContinent(filteredAmericas, filteredEurope, filteredAfrica, filteredAsiaPacific);
+
     getNews: function(clickedLocationCountryCode) {
         //$.getJSON("js/news.json", function(news) {
         //});
@@ -56,8 +70,22 @@ var view = {
             var country = locations.locations[i].country;
 
             $('.location-tags').append('<button type="button" class="btn btn-primary m-1">' + place + ', ' + country + '</button>');
-        }
+
+            if (locations.locations[i].continent === "Americas") {
+            $('#americas').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                }
+            else if (locations.locations[i].continent === "Europe") {
+            $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                }
+            else if (locations.locations[i].continent === "Africa") {
+            $('#africa').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                }
+            else if (locations.locations[i].continent === "Asia-Pacific") {
+            $('#asia-pacific').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                }
+            }
     },
+
 
     renderNews: function(news) {
         var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');
