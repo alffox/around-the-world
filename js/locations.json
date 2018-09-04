@@ -211,6 +211,20 @@
          }
       },
       {
+         "title": "Casablanca",
+         "continent": "Africa",
+         "country": "Morocco",
+         "flag": "images/flags/ma.svg",
+         "country_code": "ma",
+         "state_name": "Casablanca-Settat",
+         "state_code": "",
+         "language": "ar",
+         "location": {
+            "lat": 33.57311,
+            "lng": -7.589843
+         }
+      },
+      {
          "title": "Dalian",
          "continent": "Asia-Pacific",
          "country": "China",
@@ -292,20 +306,6 @@
          "location": {
             "lat": 25.204849,
             "lng": 55.270783
-         }
-      },
-      {
-         "title": "Casablanca",
-         "continent": "Africa",
-         "country": "Morocco",
-         "flag": "images/flags/ma.svg",
-         "country_code": "ma",
-         "state_name": "Casablanca-Settat",
-         "state_code": "",
-         "language": "ar",
-         "location": {
-            "lat": 33.57311,
-            "lng": -7.589843
          }
       }
    ]

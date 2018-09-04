@@ -9,18 +9,39 @@ var octopus = {
     getLocations: function() {
         $.getJSON("js/locations.json", function(locations) {
             view.renderLocations(locations);
-            octopus.getclickedLocationData(locations);
+            octopus.getButtonsLocationData(locations);
+            octopus.getDrodownLocationData(locations);
         });
     },
 
-    getclickedLocationData: function(locations) {
-        $('button').click(function(e) {
+    getButtonsLocationData: function(locations) {
 
-            var clickedLocationIndexPos = $(e.target).index();
+        var checks = document.querySelectorAll('.btn');
 
+        checks.forEach(function(check){
+          check.addEventListener('click', checkIndex);
+        })
+
+        function checkIndex(event){
+            var clickedLocationIndexPos = Array.from(checks).indexOf(event.target);
             octopus.setCurrentLocation(locations, clickedLocationIndexPos);
+        }
 
-        });
+    },
+
+    getDrodownLocationData: function(locations) {
+
+        var checks = document.querySelectorAll('.dropdown-item');
+
+        checks.forEach(function(check){
+          check.addEventListener('click', checkIndex);
+        })
+
+        function checkIndex(event){
+            var clickedLocationIndexPos = Array.from(checks).indexOf(event.target);
+            octopus.setCurrentLocation(locations, clickedLocationIndexPos);
+        }
+
     },
 
     setCurrentLocation: function(locations, index) {
@@ -28,20 +49,6 @@ var octopus = {
         var clickedLocationCountryCode = locations.locations[index].country_code;
         octopus.getNews(clickedLocationCountryCode);
     },
-
-        //console.log(filteredAmericas);
-
-        /*var filteredEurope = locations.locations.filter(function(item){
-            return item.continent === "Europe";
-            });
-        var filteredAfrica = locations.locations.filter(function(item){
-            return item.continent === "Africa";
-            });
-        var filteredAsiaPacific = locations.locations.filter(function(item){
-            return item.continent === "Asia-Pacific";
-            });*/
-
-        //view.renderLocationsByContinent(filteredAmericas, filteredEurope, filteredAfrica, filteredAsiaPacific);
 
     getNews: function(clickedLocationCountryCode) {
         //$.getJSON("js/news.json", function(news) {
@@ -72,7 +79,7 @@ var view = {
             $('.location-tags').append('<button type="button" class="btn btn-primary m-1">' + place + ', ' + country + '</button>');
 
             if (locations.locations[i].continent === "Americas") {
-            $('#americas').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+            $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
                 }
             else if (locations.locations[i].continent === "Europe") {
             $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
