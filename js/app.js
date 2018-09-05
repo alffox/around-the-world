@@ -47,7 +47,11 @@ var octopus = {
     setCurrentLocation: function(locations, index) {
         var clickedLocation = locations.locations[index].title;
         var clickedLocationCountryCode = locations.locations[index].country_code;
+        var clickedLocationLat = locations.locations[index].location.lat;
+        var clickedLocationLon = locations.locations[index].location.lon;
+
         octopus.getNews(clickedLocationCountryCode);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
     },
 
     getNews: function(clickedLocationCountryCode) {
@@ -57,7 +61,6 @@ var octopus = {
         $.ajax({
             url: `https://newsapi.org/v2/top-headlines?country=${clickedLocationCountryCode}&apiKey=a1bb66430a7249f9a4aee6be1d91aa99`,
             method: "GET",
-            cache: false,
             error: function() {
                 console.log("there was an error");
             },
@@ -65,6 +68,35 @@ var octopus = {
                 view.renderNews(news);
             }
         });
+    },
+
+    getWeather: function(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon) {
+
+        if (clickedLocationCountryCode === "us") {
+        $.ajax({
+            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=imperial`,
+            method: "GET",
+            error: function() {
+                console.log("there was an error");
+            },
+            success: function(weather) {
+                view.renderWeather(weather);
+            }
+        });
+        }
+        else {
+            $.ajax({
+            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
+            method: "GET",
+            error: function() {
+                console.log("there was an error");
+            },
+            success: function(weather) {
+                view.renderWeather(weather);
+            }
+        });
+        }
+
     }
 };
 
@@ -119,6 +151,24 @@ var view = {
             $(".wrapper").append($author, $title, $description);
             //console.log(artUrl);
         }
+    },
+
+    renderWeather: function(weather) {
+
+        $(".weather").empty();
+
+            console.log(weather);
+
+            var place = weather.name;
+            var temperature = weather.main.temp;
+            var weatherdescription = weather.weather[0].main;
+            var iconKey = weather.weather[0].icon;
+            var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png'
+
+            console.log(place, temperature, weatherdescription, iconURL);
+
+            //$(".weather").append(place, temperature, weatherdescription, iconKey);
+
     }
 
 };
