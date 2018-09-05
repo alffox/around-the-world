@@ -10,8 +10,8 @@
          "state_code": "CA",
          "language": "en",
          "location": {
-            "lat": 34.028623,
-            "lng": -117.810337
+            "lat": 33.997762,
+            "lng": -117.814565
          }
       },
       {
@@ -24,8 +24,8 @@
          "state_code": "IL",
          "language": "en",
          "location": {
-            "lat": 41.878114,
-            "lng": -87.629798
+            "lat": 41.886448,
+            "lng": -87.634293
          }
       },
       {
@@ -38,8 +38,8 @@
          "state_code": "OH",
          "language": "en",
          "location": {
-            "lat": 39.399501,
-            "lng": -84.561335
+            "lat": 39.399105,
+            "lng": -84.56109
          }
       },
       {
@@ -52,8 +52,8 @@
          "state_code": "NC",
          "language": "en",
          "location": {
-            "lat": 35.77959,
-            "lng": -78.638179
+            "lat": 35.802156,
+            "lng": -78.708269
          }
       },
       {
@@ -66,8 +66,8 @@
          "state_code": "ON",
          "language": "en",
          "location": {
-            "lat": 43.8561,
-            "lng": -79.337019
+            "lat": 43.85006,
+            "lng": -79.363188
          }
       },
       {
@@ -80,8 +80,8 @@
          "state_code": "PE",
          "language": "pt",
          "location": {
-            "lat": -8.054074,
-            "lng": -34.870849
+            "lat": -8.034983,
+            "lng": -34.917969
          }
       },
       {
@@ -94,8 +94,8 @@
          "state_code": "SP",
          "language": "pt",
          "location": {
-            "lat": -23.55052,
-            "lng": -46.633309
+            "lat": -23.557027,
+            "lng": -46.663198
          }
       },
       {
@@ -108,8 +108,8 @@
          "state_code": "",
          "language": "de",
          "location": {
-            "lat": 50.146747,
-            "lng": 8.561455
+            "lat": 50.135794,
+            "lng": 8.571555
          }
       },
       {
@@ -122,8 +122,8 @@
          "state_code": "",
          "language": "es",
          "location": {
-            "lat": 40.416775,
-            "lng": -3.70379
+            "lat": 40.476303,
+            "lng": -3.685699
          }
       },
       {
@@ -136,8 +136,8 @@
          "state_code": "",
          "language": "en",
          "location": {
-            "lat": 51.444581,
-            "lng": -0.335246
+            "lat": 51.449215,
+            "lng": -0.329519
          }
       },
       {
@@ -150,8 +150,8 @@
          "state_code": "",
          "language": "en",
          "location": {
-            "lat": 53.349805,
-            "lng": -6.26031
+            "lat": 53.338277,
+            "lng": -6.242025
          }
       },
       {
@@ -164,8 +164,8 @@
          "state_code": "MB",
          "language": "it",
          "location": {
-            "lat": 45.593397,
-            "lng": 9.336818
+            "lat": 45.596258,
+            "lng": 9.325988
          }
       },
       {
@@ -178,8 +178,8 @@
          "state_code": "",
          "language": "hu",
          "location": {
-            "lat": 47.497912,
-            "lng": 19.040235
+            "lat": 47.553462,
+            "lng": 19.078457
          }
       },
       {
@@ -192,8 +192,8 @@
          "state_code": "",
          "language": "fr",
          "location": {
-            "lat": 48.856614,
-            "lng": 2.352222
+            "lat": 48.873782,
+            "lng": 2.335101
          }
       },
       {
@@ -206,8 +206,8 @@
          "state_code": "",
          "language": "nl",
          "location": {
-            "lat": 52.160114,
-            "lng": 4.49701
+            "lat": 52.160285,
+            "lng": 4.512023
          }
       },
       {
@@ -220,8 +220,8 @@
          "state_code": "",
          "language": "ar",
          "location": {
-            "lat": 33.57311,
-            "lng": -7.589843
+            "lat": 33.5866,
+            "lng": -7.632392
          }
       },
       {
@@ -234,8 +234,8 @@
          "state_code": "",
          "language": "cn",
          "location": {
-            "lat": 38.914003,
-            "lng": 121.614682
+            "lat": 38.864052,
+            "lng": 121.532561
          }
       },
       {
@@ -248,8 +248,8 @@
          "state_code": "",
          "language": "jp",
          "location": {
-            "lat": 35.689488,
-            "lng": 139.691706
+            "lat": 35.647141,
+            "lng": 139.715772
          }
       },
       {
@@ -262,8 +262,8 @@
          "state_code": "KA",
          "language": "en",
          "location": {
-            "lat": 12.971599,
-            "lng": 77.594563
+            "lat": 13.027935,
+            "lng": 77.632167
          }
       },
       {
@@ -276,8 +276,8 @@
          "state_code": "NSW",
          "language": "en",
          "location": {
-            "lat": -33.86882,
-            "lng": 151.209296
+            "lat": -33.874336,
+            "lng": 151.209425
          }
       },
       {
@@ -290,8 +290,8 @@
          "state_code": "",
          "language": "en",
          "location": {
-            "lat": 1.355379,
-            "lng": 103.867744
+            "lat": 1.304029,
+            "lng": 103.834769
          }
       },
       {
@@ -304,8 +304,8 @@
          "state_code": "",
          "language": "ar",
          "location": {
-            "lat": 25.204849,
-            "lng": 55.270783
+            "lat": 25.090228,
+            "lng": 55.152997
          }
       }
    ]
