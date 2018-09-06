@@ -189,7 +189,7 @@ var view = {
 
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
 
-        $(".webcam").append('<img class="fit" src="' + webCamImageURL + '">');
+        $(".webcam").append('<img class="img-fluid" src="' + webCamImageURL + '">');
     }
 
 };
