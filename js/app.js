@@ -52,6 +52,7 @@ var octopus = {
 
         octopus.getNews(clickedLocationCountryCode);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat,clickedLocationLon);
     },
 
     getNews: function(clickedLocationCountryCode) {
@@ -96,6 +97,23 @@ var octopus = {
             }
         });
         }
+    },
+
+    getWebCam: function(clickedLocationLat,clickedLocationLon) {
+
+            var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
+
+            $.ajax({
+              headers: {
+                "X-Mashape-Key": webCamAPIKey,
+                "X-Mashape-Host": "webcamstravel.p.mashape.com"
+              },
+              url: api,
+              success: function(webcam) {
+                console.log(webcam);
+                view.renderWebCam(webcam);
+              }
+            });
     }
 
 };
@@ -164,6 +182,14 @@ var view = {
             var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png'
 
             $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherdescription + "</p>", "<img src=" + iconURL + ">");
+    },
+
+    renderWebCam: function(webcam) {
+        $(".webcam").empty();
+
+        var webCamImageURL = webcam.result.webcams[0].image.current.preview;
+
+        $(".webcam").append('<img class="fit" src="' + webCamImageURL + '">');
     }
 
 };
