@@ -96,8 +96,8 @@ var octopus = {
             }
         });
         }
-
     }
+
 };
 
 var view = {
@@ -157,18 +157,13 @@ var view = {
 
         $(".weather").empty();
 
-            console.log(weather);
-
             var place = weather.name;
             var temperature = weather.main.temp;
             var weatherdescription = weather.weather[0].main;
             var iconKey = weather.weather[0].icon;
             var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png'
 
-            console.log(place, temperature, weatherdescription, iconURL);
-
-            //$(".weather").append(place, temperature, weatherdescription, iconKey);
-
+            $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherdescription + "</p>", "<img src=" + iconURL + ">");
     }
 
 };
