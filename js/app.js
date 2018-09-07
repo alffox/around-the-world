@@ -53,6 +53,7 @@ var octopus = {
         octopus.getNews(clickedLocationCountryCode);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
         octopus.getWebCam(clickedLocationLat,clickedLocationLon);
+        octopus.getSetMap(clickedLocationLat,clickedLocationLon, clickedLocation);
     },
 
     getNews: function(clickedLocationCountryCode) {
@@ -110,11 +111,28 @@ var octopus = {
               },
               url: api,
               success: function(webcam) {
-                console.log(webcam);
                 view.renderWebCam(webcam);
               }
             });
-    }
+    },
+
+    getSetMap: function(clickedLocationLat,clickedLocationLon, clickedLocation) {
+            var currentLatLng = {lat: clickedLocationLat,lng: clickedLocationLon};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+            center: currentLatLng,
+            disableDefaultUI: true,
+            zoom: 4,
+            gestureHandling: 'greedy'
+            });
+
+            var marker = new google.maps.Marker({
+              position: currentLatLng,
+              map: map,
+              title: clickedLocation
+            });
+
+}
 
 };
 

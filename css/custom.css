@@ -6,6 +6,10 @@
     display: inline-block;
 }
 
+#map {
+    height: 34vh;
+}
+
 .card-columns {
   @include media-breakpoint-only(lg) {
     column-count: 4;
