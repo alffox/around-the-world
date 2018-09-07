@@ -9,6 +9,7 @@ var octopus = {
     getLocations: function() {
         $.getJSON("js/locations.json", function(locations) {
             view.renderLocations(locations);
+            octopus.setCurrentLocation(locations, 0);
             octopus.getButtonsLocationData(locations);
             octopus.getDrodownLocationData(locations);
         });
