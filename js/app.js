@@ -11,7 +11,7 @@ var octopus = {
             view.renderLocations(locations);
             octopus.setCurrentLocation(locations, 0);
             octopus.getButtonsLocationData(locations);
-            octopus.getDrodownLocationData(locations);
+            octopus.getDropdownLocationData(locations);
         });
     },
 
@@ -30,7 +30,7 @@ var octopus = {
 
     },
 
-    getDrodownLocationData: function(locations) {
+    getDropdownLocationData: function(locations) {
 
         var checks = document.querySelectorAll('.dropdown-item');
 
