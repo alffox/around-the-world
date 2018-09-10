@@ -48,6 +48,7 @@ var octopus = {
     setCurrentLocation: function(locations, index) {
         var clickedLocation = locations.locations[index].title;
         var clickedLocationCountryCode = locations.locations[index].country_code;
+        var clickedLocationCountry = locations.locations[index].country;
         var clickedLocationLat = locations.locations[index].location.lat;
         var clickedLocationLon = locations.locations[index].location.lon;
 
@@ -55,6 +56,7 @@ var octopus = {
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
         octopus.getWebCam(clickedLocationLat,clickedLocationLon);
         octopus.getSetMap(clickedLocationLat,clickedLocationLon, clickedLocation);
+        octopus.getWiki(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountryCode) {
@@ -133,7 +135,23 @@ var octopus = {
               title: clickedLocation
             });
 
-}
+            },
+
+    getWiki: function(clickedLocationCountry) {
+
+            $.ajax({
+            url: `https://en.wikipedia.org/api/rest_v1/page/summary/${clickedLocationCountry}`,
+            method: "GET",
+            error: function() {
+                console.log("there was an error");
+            },
+            success: function(wiki) {
+                //console.log(wiki);
+                view.renderWiki(wiki);
+            }
+        });
+    }
+
 
 };
 
@@ -174,16 +192,8 @@ var view = {
             var artUrl = news.articles[i].url;
 
             var $author = $('<div class="author">Author: ' + author + "</div >");
-            var $title = $(
-                "<a href=" + artUrl + '><div class="title">' + title + "</div ></a>"
-            );
-            var $description = $(
-                "<a href=" +
-                artUrl +
-                '><div class="description">' +
-                description +
-                "</div ></a>"
-            );
+            var $title = $("<a href=" + artUrl + '><div class="title">' + title + "</div ></a>");
+            var $description = $("<a href=" + artUrl + '><div class="description">' + description + "</div ></a>");
 
             $(".wrapper").append($author, $title, $description);
             //console.log(artUrl);
@@ -209,6 +219,18 @@ var view = {
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
 
         $(".webcam").append('<img class="img-fluid" src="' + webCamImageURL + '">');
+    },
+
+    renderWiki: function(wiki) {
+        $(".wiki").empty();
+
+        var wikiTitle = wiki.title;
+        var wikiExtract = wiki.extract;
+        var wikiUrl = wiki.content_urls.mobile.page;
+
+
+        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl +">Find more ...</a>");
+
     }
 
 };
