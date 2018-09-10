@@ -55,7 +55,7 @@ var octopus = {
         octopus.getNews(clickedLocationCountryCode);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
         octopus.getWebCam(clickedLocationLat,clickedLocationLon);
-        octopus.getSetMap(clickedLocationLat,clickedLocationLon, clickedLocation);
+        octopus.getMap(clickedLocationLat,clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
     },
@@ -120,7 +120,7 @@ var octopus = {
             });
     },
 
-    getSetMap: function(clickedLocationLat,clickedLocationLon, clickedLocation) {
+    getMap: function(clickedLocationLat,clickedLocationLon, clickedLocation) {
             var currentLatLng = {lat: clickedLocationLat,lng: clickedLocationLon};
 
             var map = new google.maps.Map(document.getElementById('map'), {
