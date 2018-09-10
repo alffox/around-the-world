@@ -19,11 +19,11 @@ var octopus = {
 
         var checks = document.querySelectorAll('.btn');
 
-        checks.forEach(function(check){
-          check.addEventListener('click', checkIndex);
-        })
+        checks.forEach(function(check) {
+            check.addEventListener('click', checkIndex);
+        });
 
-        function checkIndex(event){
+        function checkIndex(event) {
             var clickedLocationIndexPos = Array.from(checks).indexOf(event.target);
             octopus.setCurrentLocation(locations, clickedLocationIndexPos);
         }
@@ -34,11 +34,11 @@ var octopus = {
 
         var checks = document.querySelectorAll('.dropdown-item');
 
-        checks.forEach(function(check){
-          check.addEventListener('click', checkIndex);
-        })
+        checks.forEach(function(check) {
+            check.addEventListener('click', checkIndex);
+        });
 
-        function checkIndex(event){
+        function checkIndex(event) {
             var clickedLocationIndexPos = Array.from(checks).indexOf(event.target);
             octopus.setCurrentLocation(locations, clickedLocationIndexPos);
         }
@@ -53,9 +53,9 @@ var octopus = {
         var clickedLocationLon = locations.locations[index].location.lon;
 
         octopus.getNews(clickedLocationCountryCode);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat,clickedLocationLon);
-        octopus.getMap(clickedLocationLat,clickedLocationLon, clickedLocation);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
+        octopus.getMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
     },
@@ -76,71 +76,73 @@ var octopus = {
         });
     },
 
-    getWeather: function(clickedLocationCountryCode, clickedLocationLat,clickedLocationLon) {
+    getWeather: function(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
 
         if (clickedLocationCountryCode === "us") {
-        $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=imperial`,
-            method: "GET",
-            error: function() {
-                console.log("there was an error");
-            },
-            success: function(weather) {
-                view.renderWeather(weather);
-            }
-        });
-        }
-        else {
             $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
-            method: "GET",
-            error: function() {
-                console.log("there was an error");
-            },
-            success: function(weather) {
-                view.renderWeather(weather);
-            }
-        });
+                url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=imperial`,
+                method: "GET",
+                error: function() {
+                    console.log("there was an error");
+                },
+                success: function(weather) {
+                    view.renderWeather(weather);
+                }
+            });
+        } else {
+            $.ajax({
+                url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
+                method: "GET",
+                error: function() {
+                    console.log("there was an error");
+                },
+                success: function(weather) {
+                    view.renderWeather(weather);
+                }
+            });
         }
     },
 
-    getWebCam: function(clickedLocationLat,clickedLocationLon) {
+    getWebCam: function(clickedLocationLat, clickedLocationLon) {
 
-            var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
+        var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
 
-            $.ajax({
-              headers: {
+        $.ajax({
+            headers: {
                 "X-Mashape-Key": webCamAPIKey,
                 "X-Mashape-Host": "webcamstravel.p.mashape.com"
-              },
-              url: api,
-              success: function(webcam) {
+            },
+            url: api,
+            success: function(webcam) {
                 view.renderWebCam(webcam);
-              }
-            });
+            }
+        });
     },
 
-    getMap: function(clickedLocationLat,clickedLocationLon, clickedLocation) {
-            var currentLatLng = {lat: clickedLocationLat,lng: clickedLocationLon};
+    getMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
+        var currentLatLng = {
+            lat: clickedLocationLat,
+            lng: clickedLocationLon
+        };
 
-            var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('map'), {
             center: currentLatLng,
             disableDefaultUI: true,
             zoom: 4,
             gestureHandling: 'greedy'
-            });
+        });
 
-            var marker = new google.maps.Marker({
-              position: currentLatLng,
-              map: map,
-              title: clickedLocation
-            });
+        var marker = new google.maps.Marker({
+            position: currentLatLng,
+            map: map,
+            title: clickedLocation
+        });
 
-            },
+    },
 
     getWiki: function(clickedLocationCountry) {
 
-            $.ajax({
+        $.ajax({
             url: `https://en.wikipedia.org/api/rest_v1/page/summary/${clickedLocationCountry}`,
             method: "GET",
             error: function() {
@@ -153,8 +155,8 @@ var octopus = {
     },
 
     getPictures: function(clickedLocationCountry) {
-            $.ajax({
-            url: `https://api.unsplash.com/search/photos?client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`,//client-id=Access Key
+        $.ajax({
+            url: `https://api.unsplash.com/search/photos?client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`, //client-id=Access Key
             method: "GET",
             error: function() {
                 console.log("there was an error");
@@ -162,8 +164,8 @@ var octopus = {
             success: function(pictures) {
                 //view.renderPictures(pictures);
             }
-            });
-        }
+        });
+    }
 
 };
 
@@ -178,18 +180,15 @@ var view = {
             $('.location-tags').append('<button type="button" class="btn btn-primary m-1">' + place + ', ' + country + '</button>');
 
             if (locations.locations[i].continent === "Americas") {
-            $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
-                }
-            else if (locations.locations[i].continent === "Europe") {
-            $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
-                }
-            else if (locations.locations[i].continent === "Africa") {
-            $('#africa').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
-                }
-            else if (locations.locations[i].continent === "Asia-Pacific") {
-            $('#asia-pacific').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
-                }
+                $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
+            } else if (locations.locations[i].continent === "Europe") {
+                $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+            } else if (locations.locations[i].continent === "Africa") {
+                $('#africa').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+            } else if (locations.locations[i].continent === "Asia-Pacific") {
+                $('#asia-pacific').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
             }
+        }
     },
 
 
@@ -216,13 +215,13 @@ var view = {
 
         $(".weather").empty();
 
-            var place = weather.name;
-            var temperature = weather.main.temp;
-            var weatherdescription = weather.weather[0].main;
-            var iconKey = weather.weather[0].icon;
-            var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png'
+        var place = weather.name;
+        var temperature = weather.main.temp;
+        var weatherdescription = weather.weather[0].main;
+        var iconKey = weather.weather[0].icon;
+        var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
 
-            $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherdescription + "</p>", "<img src=" + iconURL + ">");
+        $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherdescription + "</p>", "<img src=" + iconURL + ">");
     },
 
     renderWebCam: function(webcam) {
@@ -241,7 +240,7 @@ var view = {
         var wikiUrl = wiki.content_urls.mobile.page;
 
 
-        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl +">Find more ...</a>");
+        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Find more ...</a>");
 
     },
 
@@ -256,8 +255,8 @@ var view = {
             var imgURL = pictures.results[i].urls.regular;
 
             $(".card-columns").append('<div class="card"><img class="card-img-top img-fluid" src=' + imgURL + ' alt="placeholder alt text"><div class="card-block"><h4 class="card-title">Card title</h4><p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div></div>');
+        }
     }
-}
 
 };
 
