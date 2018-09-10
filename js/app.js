@@ -57,6 +57,7 @@ var octopus = {
         octopus.getWebCam(clickedLocationLat,clickedLocationLon);
         octopus.getSetMap(clickedLocationLat,clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
+        octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountryCode) {
@@ -146,12 +147,23 @@ var octopus = {
                 console.log("there was an error");
             },
             success: function(wiki) {
-                //console.log(wiki);
                 view.renderWiki(wiki);
             }
         });
-    }
+    },
 
+    getPictures: function(clickedLocationCountry) {
+            $.ajax({
+            url: `https://api.unsplash.com/search/photos?client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`,//client-id=Access Key
+            method: "GET",
+            error: function() {
+                console.log("there was an error");
+            },
+            success: function(pictures) {
+                //view.renderPictures(pictures);
+            }
+            });
+        }
 
 };
 
@@ -231,7 +243,21 @@ var view = {
 
         $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl +">Find more ...</a>");
 
+    },
+
+    renderPictures: function(pictures) {
+
+
+
+        $(".card-columns").empty();
+
+        for (var i = 0; i < 10; i++) {
+
+            var imgURL = pictures.results[i].urls.regular;
+
+            $(".card-columns").append('<div class="card"><img class="card-img-top img-fluid" src=' + imgURL + ' alt="placeholder alt text"><div class="card-block"><h4 class="card-title">Card title</h4><p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div></div>');
     }
+}
 
 };
 
