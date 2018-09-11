@@ -1,4 +1,317 @@
-var model = {};
+var model = {
+
+   "locations":[
+      {
+         "title": "Diamond Bar",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "California",
+         "state_code": "CA",
+         "language": "en",
+         "location": {
+            "lat": 33.997762,
+            "lon": -117.814565
+         }
+      },
+      {
+         "title": "Chicago",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "Illinois",
+         "state_code": "IL",
+         "language": "en",
+         "location": {
+            "lat": 41.886448,
+            "lon": -87.634293
+         }
+      },
+      {
+         "title": "Hamilton",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "Ohio",
+         "state_code": "OH",
+         "language": "en",
+         "location": {
+            "lat": 39.399105,
+            "lon": -84.56109
+         }
+      },
+      {
+         "title": "Raleigh",
+         "continent": "Americas",
+         "country": "USA",
+         "flag": "images/flags/us.svg",
+         "country_code": "us",
+         "state_name": "North Carolina",
+         "state_code": "NC",
+         "language": "en",
+         "location": {
+            "lat": 35.802156,
+            "lon": -78.708269
+         }
+      },
+      {
+         "title": "Markham",
+         "continent": "Americas",
+         "country": "Canada",
+         "flag": "images/flags/ca.svg",
+         "country_code": "ca",
+         "state_name": "Ontario",
+         "state_code": "ON",
+         "language": "en",
+         "location": {
+            "lat": 43.85006,
+            "lon": -79.363188
+         }
+      },
+      {
+         "title": "Recife",
+         "continent": "Americas",
+         "country": "Brazil",
+         "flag": "images/flags/br.svg",
+         "country_code": "br",
+         "state_name": "Pernambuco",
+         "state_code": "PE",
+         "language": "pt",
+         "location": {
+            "lat": -8.034983,
+            "lon": -34.917969
+         }
+      },
+      {
+         "title": "São Paulo",
+         "continent": "Americas",
+         "country": "Brazil",
+         "flag": "images/flags/br.svg",
+         "country_code": "br",
+         "state_name": "São Paulo",
+         "state_code": "SP",
+         "language": "pt",
+         "location": {
+            "lat": -23.557027,
+            "lon": -46.663198
+         }
+      },
+      {
+         "title": "Eschborn",
+         "continent": "Europe",
+         "country": "Germany",
+         "flag": "images/flags/de.svg",
+         "country_code": "de",
+         "state_name": "Hesse",
+         "state_code": "",
+         "language": "de",
+         "location": {
+            "lat": 50.135794,
+            "lon": 8.571555
+         }
+      },
+      {
+         "title": "Madrid",
+         "continent": "Europe",
+         "country": "Spain",
+         "flag": "images/flags/es.svg",
+         "country_code": "es",
+         "state_name": "Community of Madrid",
+         "state_code": "",
+         "language": "es",
+         "location": {
+            "lat": 40.476303,
+            "lon": -3.685699
+         }
+      },
+      {
+         "title": "London",
+         "continent": "Europe",
+         "country": "United Kingdom",
+         "flag": "images/flags/gb.svg",
+         "country_code": "gb",
+         "state_name": "London",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 51.449215,
+            "lon": -0.329519
+         }
+      },
+      {
+         "title": "Dublin",
+         "continent": "Europe",
+         "country": "Ireland",
+         "flag": "images/flags/ie.svg",
+         "country_code": "ie",
+         "state_name": "Leinster",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 53.338277,
+            "lon": -6.242025
+         }
+      },
+      {
+         "title": "Concorezzo",
+         "continent": "Europe",
+         "country": "Italy",
+         "flag": "images/flags/it.svg",
+         "country_code": "it",
+         "state_name": "Monza Brianza",
+         "state_code": "MB",
+         "language": "it",
+         "location": {
+            "lat": 45.596258,
+            "lon": 9.325988
+         }
+      },
+      {
+         "title": "Budapest",
+         "continent": "Europe",
+         "country": "Hungary",
+         "flag": "images/flags/hu.svg",
+         "country_code": "hu",
+         "state_name": "Budapest",
+         "state_code": "",
+         "language": "hu",
+         "location": {
+            "lat": 47.553462,
+            "lon": 19.078457
+         }
+      },
+      {
+         "title": "Paris",
+         "continent": "Europe",
+         "country": "France",
+         "flag": "images/flags/fr.svg",
+         "country_code": "fr",
+         "state_name": "Île-de-France",
+         "state_code": "",
+         "language": "fr",
+         "location": {
+            "lat": 48.873782,
+            "lon": 2.335101
+         }
+      },
+      {
+         "title": "Leiden",
+         "continent": "Europe",
+         "country": "The Netherlands",
+         "flag": "images/flags/nl.svg",
+         "country_code": "nl",
+         "state_name": "South Holland",
+         "state_code": "",
+         "language": "nl",
+         "location": {
+            "lat": 52.160285,
+            "lon": 4.512023
+         }
+      },
+      {
+         "title": "Casablanca",
+         "continent": "Africa",
+         "country": "Morocco",
+         "flag": "images/flags/ma.svg",
+         "country_code": "ma",
+         "state_name": "Casablanca-Settat",
+         "state_code": "",
+         "language": "ar",
+         "location": {
+            "lat": 33.5866,
+            "lon": -7.632392
+         }
+      },
+      {
+         "title": "Dalian",
+         "continent": "Asia-Pacific",
+         "country": "China",
+         "flag": "images/flags/cn.svg",
+         "country_code": "cn",
+         "state_name": "Liaoning",
+         "state_code": "",
+         "language": "cn",
+         "location": {
+            "lat": 38.864052,
+            "lon": 121.532561
+         }
+      },
+      {
+         "title": "Tokyo",
+         "continent": "Asia-Pacific",
+         "country": "Japan",
+         "flag": "images/flags/jp.svg",
+         "country_code": "jp",
+         "state_name": "",
+         "state_code": "",
+         "language": "jp",
+         "location": {
+            "lat": 35.647141,
+            "lon": 139.715772
+         }
+      },
+      {
+         "title": "Bangalore",
+         "continent": "Asia-Pacific",
+         "country": "India",
+         "flag": "images/flags/in.svg",
+         "country_code": "in",
+         "state_name": "Karnataka",
+         "state_code": "KA",
+         "language": "en",
+         "location": {
+            "lat": 13.027935,
+            "lon": 77.632167
+         }
+      },
+      {
+         "title": "Sydney",
+         "continent": "Asia-Pacific",
+         "country": "Australia",
+         "flag": "images/flags/au.svg",
+         "country_code": "au",
+         "state_name": "New South Wales",
+         "state_code": "NSW",
+         "language": "en",
+         "location": {
+            "lat": -33.874336,
+            "lon": 151.209425
+         }
+      },
+      {
+         "title": "Singapore",
+         "continent": "Asia-Pacific",
+         "country": "Singapore",
+         "flag": "images/flags/sg.svg",
+         "country_code": "sg",
+         "state_name": "",
+         "state_code": "",
+         "language": "en",
+         "location": {
+            "lat": 1.304029,
+            "lon": 103.834769
+         }
+      },
+      {
+         "title": "Dubai",
+         "continent": "Asia-Pacific",
+         "country": "United Arab Emirates",
+         "flag": "images/flags/ae.svg",
+         "country_code": "ae",
+         "state_name": "",
+         "state_code": "",
+         "language": "ar",
+         "location": {
+            "lat": 25.090228,
+            "lon": 55.152997
+         }
+      }
+   ]
+
+};
 
 var octopus = {
 
@@ -7,12 +320,12 @@ var octopus = {
     },
 
     getLocations: function() {
-        $.getJSON("js/locations.json", function(locations) {
+        var locations = model.locations;
+
             view.renderLocations(locations);
             octopus.setCurrentLocation(locations, 0);
             octopus.getButtonsLocationData(locations);
             octopus.getDropdownLocationData(locations);
-        });
     },
 
     getButtonsLocationData: function(locations) {
@@ -46,11 +359,11 @@ var octopus = {
     },
 
     setCurrentLocation: function(locations, index) {
-        var clickedLocation = locations.locations[index].title;
-        var clickedLocationCountryCode = locations.locations[index].country_code;
-        var clickedLocationCountry = locations.locations[index].country;
-        var clickedLocationLat = locations.locations[index].location.lat;
-        var clickedLocationLon = locations.locations[index].location.lon;
+        var clickedLocation = locations[index].title;
+        var clickedLocationCountryCode = locations[index].country_code;
+        var clickedLocationCountry = locations[index].country;
+        var clickedLocationLat = locations[index].location.lat;
+        var clickedLocationLon = locations[index].location.lon;
 
         octopus.getNews(clickedLocationCountryCode);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
@@ -173,19 +486,19 @@ var view = {
 
     renderLocations: function(locations) {
 
-        for (var i = 0; i < locations.locations.length; i++) {
-            var place = locations.locations[i].title;
-            var country = locations.locations[i].country;
+        for (var i = 0; i < locations.length; i++) {
+            var place = locations[i].title;
+            var country = locations[i].country;
 
             $('.location-tags').append('<button type="button" class="btn btn-info m-1">' + place + ', ' + country + '</button>');
 
-            if (locations.locations[i].continent === "Americas") {
+            if (locations[i].continent === "Americas") {
                 $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
-            } else if (locations.locations[i].continent === "Europe") {
+            } else if (locations[i].continent === "Europe") {
                 $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
-            } else if (locations.locations[i].continent === "Africa") {
+            } else if (locations[i].continent === "Africa") {
                 $('#africa').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
-            } else if (locations.locations[i].continent === "Asia-Pacific") {
+            } else if (locations[i].continent === "Asia-Pacific") {
                 $('#asia-pacific').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
             }
         }
