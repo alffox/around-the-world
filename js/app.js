@@ -490,7 +490,6 @@ var view = {
         $('.flag-top').attr("src", clickedLocationFlag);
         $('.flag-top').attr("alt", "Flag of " + clickedLocationCountry);
         $('.location').text(clickedLocation +', '+ clickedLocationCountry);
-        console.log(clickedLocationFlag, clickedLocation, clickedLocationCountry);
     },
 
     renderLocations: function(locations) {
