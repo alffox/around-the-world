@@ -495,10 +495,11 @@ var view = {
     renderLocations: function(locations) {
 
         for (var i = 0; i < locations.length; i++) {
+            var placeFlag = locations[i].flag;
             var place = locations[i].title;
             var country = locations[i].country;
 
-            $('.location-tags').append('<button type="button" class="btn btn-info m-1">' + place + ', ' + country + '</button>');
+            $('.location-tags').append('<button type="button" class="btn btn-info m-1"><img class="img-fluid flag-button img-thumbnail mr-2" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</button>');
 
             if (locations[i].continent === "Americas") {
                 $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');

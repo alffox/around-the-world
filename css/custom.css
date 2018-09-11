@@ -7,6 +7,11 @@
     height: 70px;
 }
 
+.flag-button {
+    width: 50px;
+    height: 35px;
+}
+
 .atw-box {
     border-style: solid;
 }
