@@ -2,6 +2,11 @@
     width: 50px;
 }
 
+.flag-top {
+    width: 100px;
+    height: 70px;
+}
+
 .atw-box {
     border-style: solid;
 }

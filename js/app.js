@@ -358,11 +358,14 @@ var octopus = {
     },
 
     setCurrentLocation: function(locations, index) {
+        var clickedLocationFlag = locations[index].flag;
         var clickedLocation = locations[index].title;
         var clickedLocationCountryCode = locations[index].country_code;
         var clickedLocationCountry = locations[index].country;
         var clickedLocationLat = locations[index].location.lat;
         var clickedLocationLon = locations[index].location.lon;
+
+        view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
         octopus.getNews(clickedLocationCountryCode);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
@@ -482,6 +485,13 @@ var octopus = {
 };
 
 var view = {
+
+    renderLocationTop: function(clickedLocationFlag, clickedLocation, clickedLocationCountry) {
+        $('.flag-top').attr("src", clickedLocationFlag);
+        $('.flag-top').attr("alt", "Flag of " + clickedLocationCountry);
+        $('.location').text(clickedLocation +', '+ clickedLocationCountry);
+        console.log(clickedLocationFlag, clickedLocation, clickedLocationCountry);
+    },
 
     renderLocations: function(locations) {
 
