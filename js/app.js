@@ -177,7 +177,7 @@ var view = {
             var place = locations.locations[i].title;
             var country = locations.locations[i].country;
 
-            $('.location-tags').append('<button type="button" class="btn btn-primary m-1">' + place + ', ' + country + '</button>');
+            $('.location-tags').append('<button type="button" class="btn btn-info m-1">' + place + ', ' + country + '</button>');
 
             if (locations.locations[i].continent === "Americas") {
                 $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
