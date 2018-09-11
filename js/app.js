@@ -125,7 +125,7 @@ var octopus = {
             lng: clickedLocationLon
         };
 
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
             center: currentLatLng,
             disableDefaultUI: true,
             zoom: 4,
@@ -194,7 +194,7 @@ var view = {
 
     renderNews: function(news) {
         var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');
-        $(".wrapper").empty().append($attribution);
+        $(".news").empty().append($attribution);
 
         for (var i = 0; i < 10; i++) {
             var author = news.articles[i].author;
@@ -206,7 +206,7 @@ var view = {
             var $title = $("<a href=" + artUrl + '><div class="title">' + title + "</div ></a>");
             var $description = $("<a href=" + artUrl + '><div class="description">' + description + "</div ></a>");
 
-            $(".wrapper").append($author, $title, $description);
+            $(".news").append($author, $title, $description);
             //console.log(artUrl);
         }
     },
