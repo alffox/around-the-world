@@ -162,7 +162,7 @@ var octopus = {
                 console.log("there was an error");
             },
             success: function(pictures) {
-                //view.renderPictures(pictures);
+                view.renderPictures(pictures);
             }
         });
     }
