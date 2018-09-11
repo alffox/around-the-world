@@ -317,15 +317,14 @@ var octopus = {
 
     initData: function() {
         octopus.getLocations();
+        view.renderLocations(locations);
+        octopus.setCurrentLocation(locations, 0);
+        octopus.getButtonsLocationData(locations);
+        octopus.getDropdownLocationData(locations);
     },
 
     getLocations: function() {
-        var locations = model.locations;
-
-            view.renderLocations(locations);
-            octopus.setCurrentLocation(locations, 0);
-            octopus.getButtonsLocationData(locations);
-            octopus.getDropdownLocationData(locations);
+        return locations = model.locations;
     },
 
     getButtonsLocationData: function(locations) {
