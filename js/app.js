@@ -362,12 +362,13 @@ var octopus = {
         var clickedLocation = locations[index].title;
         var clickedLocationCountryCode = locations[index].country_code;
         var clickedLocationCountry = locations[index].country;
+        var clickedLocationStateName = locations[index].state_name;
         var clickedLocationLat = locations[index].location.lat;
         var clickedLocationLon = locations[index].location.lon;
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-        octopus.getNews(clickedLocationCountry);
+        octopus.getNews(clickedLocationCountry,clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
@@ -375,12 +376,12 @@ var octopus = {
         octopus.getPictures(clickedLocationCountry);
     },
 
-    getNews: function(clickedLocationCountry) {
+    getNews: function(clickedLocationCountry,clickedLocationStateName) {
         //$.getJSON("js/news.json", function(news) {
         //});
         //Actual method:
         $.ajax({
-            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry}&apiKey=${newsAPIKey}`,
+            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
             method: "GET",
             error: function() {
                 console.log("there was an error");
