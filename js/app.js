@@ -367,7 +367,7 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-        octopus.getNews(clickedLocationCountryCode);
+        octopus.getNews(clickedLocationCountry);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
@@ -375,17 +375,18 @@ var octopus = {
         octopus.getPictures(clickedLocationCountry);
     },
 
-    getNews: function(clickedLocationCountryCode) {
+    getNews: function(clickedLocationCountry) {
         //$.getJSON("js/news.json", function(news) {
         //});
         //Actual method:
         $.ajax({
-            url: `https://newsapi.org/v2/top-headlines?country=${clickedLocationCountryCode}&apiKey=a1bb66430a7249f9a4aee6be1d91aa99`,
+            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry}&apiKey=${newsAPIKey}`,
             method: "GET",
             error: function() {
                 console.log("there was an error");
             },
             success: function(news) {
+                console.log(news);
                 view.renderNews(news);
             }
         });
