@@ -493,26 +493,29 @@ var view = {
     },
 
     renderLocations: function(locations) {
-
         for (var i = 0; i < locations.length; i++) {
+
             var placeFlag = locations[i].flag;
             var place = locations[i].title;
             var country = locations[i].country;
 
-            $('.location-tags').append('<button type="button" class="btn btn-info m-1"><img class="img-fluid flag-button img-thumbnail mr-2" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</button>');
+            var buttonHTML = ('<button type="button" class="btn btn-info m-1"><img class="img-fluid flag-button img-thumbnail mr-3" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</button>');
+
+            var dropdownHTML = ('<a class="dropdown-item"><img class="img-fluid flag-dropdown img-thumbnail pr1" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</a>');
+
+            $('.location-tags').append(buttonHTML);
 
             if (locations[i].continent === "Americas") {
-                $('#americas').append('<a class="dropdown-item">' + place + ', ' + country + '</a>');
+                $('#americas').append(dropdownHTML);
             } else if (locations[i].continent === "Europe") {
-                $('#europe').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                $('#europe').append(dropdownHTML);
             } else if (locations[i].continent === "Africa") {
-                $('#africa').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                $('#africa').append(dropdownHTML);
             } else if (locations[i].continent === "Asia-Pacific") {
-                $('#asia-pacific').append('<a class="dropdown-item" href="#">' + place + ', ' + country + '</a>');
+                $('#asia-pacific').append(dropdownHTML);
             }
         }
     },
-
 
     renderNews: function(news) {
         var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');

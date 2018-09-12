@@ -1,15 +1,33 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+#navbarSupportedContent {
+    cursor: pointer;
+}
+
 .favicon {
     width: 50px;
 }
 
 .flag-top {
     width: 100px;
-    height: 70px;
 }
 
 .flag-button {
     width: 50px;
-    height: 35px;
+}
+
+.flag-dropdown {
+    width: 25px;
+    margin-left: 0rem;
+    margin-right: 0.25rem;
+}
+
+.dropdown-item {
+    padding: 0.25rem;
+    margin-left: 1.25rem;
+    margin-right: 2.25rem;
 }
 
 .atw-box {
