@@ -329,7 +329,7 @@ var octopus = {
 
     getButtonsLocationData: function(locations) {
 
-        var checks = document.querySelectorAll('.btn');
+        var checks = document.querySelectorAll('button');
 
         checks.forEach(function(check) {
             check.addEventListener('click', checkIndex);
@@ -523,7 +523,7 @@ var view = {
         var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');
         $(".news").empty().append($attribution);
 
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 11; i++) {
             var author = news.articles[i].author;
             var title = news.articles[i].title;
             var description = news.articles[i].description;

@@ -24,6 +24,12 @@
     margin-right: 0.25rem;
 }
 
+.flag-button,
+.flag-dropdown {
+    pointer-events: none;
+    cursor: pointer;
+}
+
 .dropdown-item {
     padding: 0.25rem;
     margin-left: 1.25rem;
