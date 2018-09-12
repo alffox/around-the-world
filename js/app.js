@@ -377,17 +377,13 @@ var octopus = {
     },
 
     getNews: function(clickedLocationCountry,clickedLocationStateName) {
-        //$.getJSON("js/news.json", function(news) {
-        //});
-        //Actual method:
         $.ajax({
             url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
             method: "GET",
             error: function() {
-                console.log("there was an error");
+                $('.news').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
             },
             success: function(news) {
-                console.log(news);
                 view.renderNews(news);
             }
         });
@@ -520,22 +516,20 @@ var view = {
     },
 
     renderNews: function(news) {
-        var $attribution = $('<p class="top">Free news API for Developers</p><h1>Powered by <a href="https://newsapi.org/">News API</a></h1>');
-        $(".news").empty().append($attribution);
 
-        for (var i = 0; i < 11; i++) {
-            var author = news.articles[i].author;
-            var title = news.articles[i].title;
-            var description = news.articles[i].description;
-            var artUrl = news.articles[i].url;
+        $('.news').empty();
 
-            var $author = $('<div class="author">Author: ' + author + "</div >");
-            var $title = $("<a href=" + artUrl + '><div class="title">' + title + "</div ></a>");
-            var $description = $("<a href=" + artUrl + '><div class="description">' + description + "</div ></a>");
+        for (var i = 0; i < 15; i++) {
+            var newsPicture = news.articles[i].urlToImage;
+            var newsTitle = news.articles[i].title;
+            var newsUrl = news.articles[i].url;
+            var newsSource = news.articles[i].source.name;
 
-            $(".news").append($author, $title, $description);
-            //console.log(artUrl);
+            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+
+            $('.news').append(newsHTML);
         }
+
     },
 
     renderWeather: function(weather) {

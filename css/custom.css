@@ -36,9 +36,13 @@
     margin-right: 2.25rem;
 }
 
-.atw-box {
-    border-style: solid;
+.news-picture {
+    width: 10%;
 }
+
+/*.atw-box {
+    border-style: solid;
+}*/
 
 .card {
     display: inline-block;
