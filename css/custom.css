@@ -45,6 +45,14 @@
     min-height: 7%;
 }
 
+.list-group {
+    transition: all .2s ease-in-out;
+}
+
+.list-group:hover {
+  transform: scale(1.02);
+}
+
 .card {
     display: inline-block;
 }

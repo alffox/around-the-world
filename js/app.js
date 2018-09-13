@@ -369,11 +369,11 @@ var octopus = {
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
         octopus.getNews(clickedLocationCountry,clickedLocationStateName);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+/*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
-        octopus.getPictures(clickedLocationCountry);
+        octopus.getPictures(clickedLocationCountry);*/
     },
 
     getNews: function(clickedLocationCountry,clickedLocationStateName) {
@@ -516,6 +516,7 @@ var view = {
     },
 
     renderNews: function(news) {
+        console.log(news);
 
         $('.news').empty();
 
@@ -525,7 +526,11 @@ var view = {
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
+            if (newsPicture !== null) {
             var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+        } else {
+            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+        }
 
             $('.news').append(newsHTML);
         }
