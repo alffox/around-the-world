@@ -368,9 +368,9 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
-/*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
+/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);*/
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+/*        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
@@ -542,12 +542,12 @@ var view = {
         $(".weather").empty();
 
         var place = weather.name;
-        var temperature = weather.main.temp;
-        var weatherdescription = weather.weather[0].main;
+        var temperature = Math.round(weather.main.temp);
+        var weatherDescription = weather.weather[0].main;
         var iconKey = weather.weather[0].icon;
         var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherdescription + "</p>", "<img src=" + iconURL + ">");
+        $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherDescription + "</p>", "<img src=" + iconURL + ">");
     },
 
     renderWebCam: function(webcam) {
