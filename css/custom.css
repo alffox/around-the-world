@@ -12,14 +12,18 @@
 
 .flag-top {
     width: 100px;
+    height: 65px;
+    min-height: 65px;
 }
 
 .flag-button {
     width: 50px;
+    height: 37px;
+    min-height: 37px;
 }
 
 .flag-dropdown {
-    width: 25px;
+    width: 30px;
     margin-left: 0rem;
     margin-right: 0.25rem;
 }
@@ -36,12 +40,10 @@
 }
 
 .news-picture {
-    width: 10%;
+    width: 15%;
+    height: 7%;
+    min-height: 7%;
 }
-
-/*.atw-box {
-    border-style: solid;
-}*/
 
 .card {
     display: inline-block;
