@@ -368,7 +368,7 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-        octopus.getNews(clickedLocationCountry,clickedLocationStateName);
+        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
 /*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
@@ -376,7 +376,7 @@ var octopus = {
         octopus.getPictures(clickedLocationCountry);*/
     },
 
-    getNews: function(clickedLocationCountry,clickedLocationStateName) {
+    getNews: function(clickedLocationCountry, clickedLocationStateName) {
         $.ajax({
             url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
             method: "GET",
