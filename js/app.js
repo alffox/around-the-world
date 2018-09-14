@@ -405,7 +405,7 @@ var octopus = {
 
     getWebCam: function(clickedLocationLat, clickedLocationLon) {
 
-        var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/orderby=random/limit=5?show=webcams%3Aimage%2Clocation&amp;lang=en`;
+        var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/orderby=random/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
 
         $.ajax({
             headers: {
@@ -541,11 +541,10 @@ var view = {
     renderWebCam: function(webcam) {
         $(".webcam").empty();
 
-        var randomWebCam = Math.floor(Math.random() * 10);
-
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
+        var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
 
-        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '">');
+        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><small class="font-italic"> ' + webCamLocation + ' </small>');
     },
 
     renderWiki: function(wiki) {
