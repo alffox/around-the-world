@@ -573,7 +573,6 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-console.log(pictures);
         $(".pictures").empty();
 
         for (var i = 0; i < 10; i++) {
