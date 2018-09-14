@@ -391,18 +391,6 @@ var octopus = {
 
     getWeather: function(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
 
-        if (clickedLocationCountryCode === "us") {
-            $.ajax({
-                url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=imperial`,
-                method: "GET",
-                error: function() {
-                    console.log("there was an error");
-                },
-                success: function(weather) {
-                    view.renderWeather(weather);
-                }
-            });
-        } else {
             $.ajax({
                 url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
                 method: "GET",
@@ -413,7 +401,6 @@ var octopus = {
                     view.renderWeather(weather);
                 }
             });
-        }
     },
 
     getWebCam: function(clickedLocationLat, clickedLocationLon) {
