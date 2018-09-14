@@ -372,8 +372,8 @@ var octopus = {
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
         //octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-        octopus.getWiki(clickedLocationCountry);
-        //octopus.getPictures(clickedLocationCountry);
+        //octopus.getWiki(clickedLocationCountry);
+        octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -405,7 +405,7 @@ var octopus = {
     },
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
-        var errorKey = ".webcam"
+        var errorKey = ".webcam";
         if (clickedLocationCountryCode === "ma" || "cn" || "in") {
             var api = `https://webcamstravel.p.mashape.com/webcams/list/country=${clickedLocationCountryCode}/orderby=random?show=webcams%3Aimage%2Clocation&amp;lang=en`;
         } else {
@@ -449,7 +449,7 @@ var octopus = {
     },
 
     getWiki: function(clickedLocationCountry) {
-        var errorKey = ".wiki"
+        var errorKey = ".wiki";
         $.ajax({
             url: `https://en.wikipedia.org/api/rest_v1/page/summary/${clickedLocationCountry}`,
             method: "GET",
@@ -463,9 +463,11 @@ var octopus = {
     },
 
     getPictures: function(clickedLocationCountry) {
-        var errorKey = ".card-columns"
+        var errorKey = ".pictures";
+        var randomPageNumber = Math.floor(Math.random() * 20);
+
         $.ajax({
-            url: `https://api.unsplash.com/search/photos?client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`, //client-id=Access Key
+            url: `https://api.unsplash.com/search/photos?page=${randomPageNumber}&client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`, //client-id=Access Key
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -516,7 +518,6 @@ var view = {
     },
 
     renderNews: function(news) {
-        console.log(news);
 
         $('.news').empty();
 
@@ -572,14 +573,18 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-
-        $(".card-columns").empty();
+console.log(pictures);
+        $(".pictures").empty();
 
         for (var i = 0; i < 10; i++) {
 
-            var imgURL = pictures.results[i].urls.regular;
+            var pictureURL = pictures.results[i].urls.regular;
+            var pictureAuthorFullName = pictures.results[i].user.first_name +"  "+ pictures.results[i].user.last_name;
+            var pictureAuthorURL = pictures.results[i].user.links.html;
+            var pictureDescription = pictures.results[i].description;
+            console.log(pictureAuthorFullName);
 
-            $(".card-columns").append('<div class="card"><img class="card-img-top img-fluid" src=' + imgURL + ' alt="placeholder alt text"><div class="card-block"><h4 class="card-title">Card title</h4><p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div></div>');
+            $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid" src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorFullName + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
         }
     }
 
