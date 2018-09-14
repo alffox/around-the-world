@@ -581,7 +581,6 @@ var view = {
             var pictureAuthorFullName = pictures.results[i].user.first_name +"  "+ pictures.results[i].user.last_name;
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
-            console.log(pictureAuthorFullName);
 
             $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid" src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorFullName + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
         }
