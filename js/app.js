@@ -370,7 +370,7 @@ var octopus = {
 
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);*/
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
 /*        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
@@ -403,9 +403,13 @@ var octopus = {
             });
     },
 
-    getWebCam: function(clickedLocationLat, clickedLocationLon) {
+    getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
 
+        if (clickedLocationCountryCode === "ma" || "cn" || "in") {
+            var api = `https://webcamstravel.p.mashape.com/webcams/list/country=${clickedLocationCountryCode}/orderby=random?show=webcams%3Aimage%2Clocation&amp;lang=en`;
+        } else {
         var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/orderby=random/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
+        }
 
         $.ajax({
             headers: {
@@ -414,7 +418,6 @@ var octopus = {
             },
             url: api,
             success: function(webcam) {
-                console.log(webcam);
                 view.renderWebCam(webcam);
             }
         });
