@@ -534,7 +534,7 @@ var view = {
         var iconKey = weather.weather[0].icon;
         var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").append("<p>" + place + "</p>", "<p>" + temperature + "</p>", "<p>" + weatherDescription + "</p>", "<img src=" + iconURL + ">");
+        $(".weather").append('<p>' + place + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
     },
 
     renderWebCam: function(webcam) {
