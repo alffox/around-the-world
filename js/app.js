@@ -368,7 +368,7 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);*/
+        /*octopus.getNews(clickedLocationCountry, clickedLocationStateName);*/
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
 /*        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
         octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
