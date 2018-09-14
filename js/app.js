@@ -368,10 +368,10 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-        /*octopus.getNews(clickedLocationCountry, clickedLocationStateName);*/
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-/*        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
-        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);*/
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon);
+/*        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
     },
@@ -414,6 +414,7 @@ var octopus = {
             },
             url: api,
             success: function(webcam) {
+                console.log(webcam);
                 view.renderWebCam(webcam);
             }
         });
@@ -542,7 +543,7 @@ var view = {
 
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
 
-        $(".webcam").append('<img class="img-fluid" src="' + webCamImageURL + '">');
+        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '">');
     },
 
     renderWiki: function(wiki) {

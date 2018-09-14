@@ -64,6 +64,12 @@
     min-height: 64px;
 }
 
+.webcam-picture {
+    width: 213px;
+    height: 123px;
+    min-height: 123px;
+}
+
 .card {
     display: inline-block;
 }
