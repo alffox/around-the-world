@@ -369,10 +369,10 @@ var octopus = {
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);*/
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
-/*        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-        octopus.getWiki(clickedLocationCountry);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
+        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+/*        octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
     },
 
@@ -395,7 +395,7 @@ var octopus = {
                 url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
                 method: "GET",
                 error: function() {
-                    console.log("there was an error");
+                $('.weather').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
                 },
                 success: function(weather) {
                     view.renderWeather(weather);
@@ -417,6 +417,9 @@ var octopus = {
                 "X-Mashape-Host": "webcamstravel.p.mashape.com"
             },
             url: api,
+            error: function() {
+                $('.webcam').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+                },
             success: function(webcam) {
                 view.renderWebCam(webcam);
             }
