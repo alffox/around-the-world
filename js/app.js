@@ -371,17 +371,18 @@ var octopus = {
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
-        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-/*        octopus.getWiki(clickedLocationCountry);
-        octopus.getPictures(clickedLocationCountry);*/
+        //octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        octopus.getWiki(clickedLocationCountry);
+        //octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
+        var errorKey = '.news';
         $.ajax({
             url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
             method: "GET",
             error: function() {
-                $('.news').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+                view.renderAPIError(errorKey);
             },
             success: function(news) {
                 view.renderNews(news);
@@ -390,12 +391,12 @@ var octopus = {
     },
 
     getWeather: function(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
-
+            var errorKey = '.weather';
             $.ajax({
                 url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
                 method: "GET",
                 error: function() {
-                $('.weather').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+                    view.renderAPIError(errorKey);
                 },
                 success: function(weather) {
                     view.renderWeather(weather);
@@ -404,13 +405,12 @@ var octopus = {
     },
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
-
+        var errorKey = ".webcam"
         if (clickedLocationCountryCode === "ma" || "cn" || "in") {
             var api = `https://webcamstravel.p.mashape.com/webcams/list/country=${clickedLocationCountryCode}/orderby=random?show=webcams%3Aimage%2Clocation&amp;lang=en`;
         } else {
         var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/orderby=random/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
         }
-
         $.ajax({
             headers: {
                 "X-Mashape-Key": webCamAPIKey,
@@ -418,7 +418,7 @@ var octopus = {
             },
             url: api,
             error: function() {
-                $('.webcam').append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+                view.renderAPIError(errorKey);
                 },
             success: function(webcam) {
                 view.renderWebCam(webcam);
@@ -427,6 +427,7 @@ var octopus = {
     },
 
     getSetMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
+
         var currentLatLng = {
             lat: clickedLocationLat,
             lng: clickedLocationLon
@@ -448,12 +449,12 @@ var octopus = {
     },
 
     getWiki: function(clickedLocationCountry) {
-
+        var errorKey = ".wiki"
         $.ajax({
             url: `https://en.wikipedia.org/api/rest_v1/page/summary/${clickedLocationCountry}`,
             method: "GET",
             error: function() {
-                console.log("there was an error");
+                view.renderAPIError(errorKey);
             },
             success: function(wiki) {
                 view.renderWiki(wiki);
@@ -462,11 +463,12 @@ var octopus = {
     },
 
     getPictures: function(clickedLocationCountry) {
+        var errorKey = ".card-columns"
         $.ajax({
             url: `https://api.unsplash.com/search/photos?client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`, //client-id=Access Key
             method: "GET",
             error: function() {
-                console.log("there was an error");
+                view.renderAPIError(errorKey);
             },
             success: function(pictures) {
                 view.renderPictures(pictures);
@@ -477,6 +479,10 @@ var octopus = {
 };
 
 var view = {
+
+    renderAPIError: function(errorKey) {
+        $(errorKey).append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+    },
 
     renderLocationTop: function(clickedLocationFlag, clickedLocation, clickedLocationCountry) {
         $('.flag-top').attr("src", clickedLocationFlag);
@@ -566,8 +572,6 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-
-
 
         $(".card-columns").empty();
 
