@@ -316,7 +316,6 @@ var model = {
 var octopus = {
 
     initData: function() {
-        view.init();
         octopus.getLocations();
         view.renderLocations(locations);
         octopus.setCurrentLocation(locations, 0);
@@ -370,11 +369,11 @@ var octopus = {
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
         octopus.getNews(clickedLocationCountry, clickedLocationStateName);
-        /*octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
-        //octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-        //octopus.getWiki(clickedLocationCountry);
-        //octopus.getPictures(clickedLocationCountry);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
+        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        octopus.getWiki(clickedLocationCountry);
+        octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -483,14 +482,6 @@ var octopus = {
 
 var view = {
 
-    init: function() {
-        $(window).resize(function() {
-        if ( $('.api-button').is(':hidden') ) {
-            $('.collapse').show();
-        }
-    });
-    },
-
     renderAPIError: function(errorKey) {
         $(errorKey).append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
     },
@@ -531,20 +522,14 @@ var view = {
         $('.news').empty();
 
         for (var i = 0; i < 15; i++) {
-            var newsPicture = news.articles[i].urlToImage;
             var newsTitle = news.articles[i].title;
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
-            if (newsPicture !== null) {
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
-        } else {
             var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
-        }
 
             $('.news').append(newsHTML);
         }
-
     },
 
     renderWeather: function(weather) {
