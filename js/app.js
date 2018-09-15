@@ -316,6 +316,7 @@ var model = {
 var octopus = {
 
     initData: function() {
+        view.init();
         octopus.getLocations();
         view.renderLocations(locations);
         octopus.setCurrentLocation(locations, 0);
@@ -368,12 +369,12 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
+        /*octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
         //octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         //octopus.getWiki(clickedLocationCountry);
-        octopus.getPictures(clickedLocationCountry);
+        //octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -481,6 +482,14 @@ var octopus = {
 };
 
 var view = {
+
+    init: function() {
+        $(window).resize(function() {
+        if ( $('.api-button').is(':hidden') ) {
+            $('.collapse').show();
+        }
+    });
+    },
 
     renderAPIError: function(errorKey) {
         $(errorKey).append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
