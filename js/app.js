@@ -368,11 +368,11 @@ var octopus = {
 
         view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
 
-/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
+        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
+/*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getRenderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-/*        octopus.getWiki(clickedLocationCountry);
+        octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
     },
 
@@ -535,7 +535,7 @@ var view = {
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center m-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+            var newsHTML = ('<li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li>');
 
             $('.news').append(newsHTML);
         }
@@ -560,7 +560,7 @@ var view = {
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
         var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
 
-        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><small class="font-italic"> ' + webCamLocation + ' </small>');
+        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
     },
 
     renderWiki: function(wiki) {
