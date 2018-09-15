@@ -371,7 +371,7 @@ var octopus = {
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);*/
-        octopus.getSetMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        octopus.getRenderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
 /*        octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);*/
     },
@@ -426,26 +426,35 @@ var octopus = {
         });
     },
 
-    getSetMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
+    getRenderMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
+        var errorKey = ".maps";
 
         var currentLatLng = {
             lat: clickedLocationLat,
             lng: clickedLocationLon
         };
 
-        var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
-            center: currentLatLng,
-            disableDefaultUI: true,
-            zoom: 4,
-            gestureHandling: 'greedy'
-        });
+        $.ajax({
+                url: `https://maps.googleapis.com/maps/api/js?key=AIzaSyBsIBNOK4MKVdeJYkugTaC7SGUekg4ine4`,
+                type: "GET",
+                dataType: 'jsonp',
+                error: function() {
+                    view.renderAPIError(errorKey);
+                },
+                success: function() {
+                    var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+                        center: currentLatLng,
+                        disableDefaultUI: true,
+                        zoom: 4
+                    });
 
-        var marker = new google.maps.Marker({
-            position: currentLatLng,
-            map: map,
-            title: clickedLocation
+                var marker = new google.maps.Marker({
+                    position: currentLatLng,
+                    map: map,
+                    title: clickedLocation
+                });
+            }
         });
-
     },
 
     getWiki: function(clickedLocationCountry) {
