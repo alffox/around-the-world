@@ -372,8 +372,8 @@ var octopus = {
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getRenderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-        octopus.getWiki(clickedLocationCountry);
-        octopus.getPictures(clickedLocationCountry);*/
+        octopus.getWiki(clickedLocationCountry);*/
+        octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -495,6 +495,12 @@ var view = {
         $(errorKey).append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
     },
 
+    lazyLoad: function() {
+        $(function() {
+            $('.lazy').lazy();
+        });
+    },
+
     renderLocationTop: function(clickedLocationFlag, clickedLocation, clickedLocationCountry) {
         $('.flag-top').attr("src", clickedLocationFlag);
         $('.flag-top').attr("alt", "Flag of " + clickedLocationCountry);
@@ -576,11 +582,8 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-        $(".pictures").empty();
-
-            $(function() {
-                $('.lazy').lazy();
-            });
+        $("#pictures").empty();
+        view.lazyLoad();
 
         for (var i = 0; i < 10; i++) {
 
