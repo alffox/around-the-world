@@ -358,7 +358,7 @@ var octopus = {
     },
 
     setCurrentLocation: function(locations, index) {
-        var clickedLocationFlag = locations[index].flag;
+        //var clickedLocationFlag = locations[index].flag;
         var clickedLocation = locations[index].title;
         var clickedLocationCountryCode = locations[index].country_code;
         var clickedLocationCountry = locations[index].country;
@@ -366,7 +366,7 @@ var octopus = {
         var clickedLocationLat = locations[index].location.lat;
         var clickedLocationLon = locations[index].location.lon;
 
-        view.renderLocationTop(clickedLocationFlag, clickedLocation, clickedLocationCountry);
+        view.renderLocationTop(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
@@ -501,10 +501,8 @@ var view = {
         });
     },
 
-    renderLocationTop: function(clickedLocationFlag, clickedLocation, clickedLocationCountry) {
-        $('.flag-top').attr("src", clickedLocationFlag);
-        $('.flag-top').attr("alt", "Flag of " + clickedLocationCountry);
-        $('.location').text(clickedLocation +', '+ clickedLocationCountry);
+    renderLocationTop: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
+        $('.location').append('<div class="' + clickedLocationCountryCode + ' mx-auto"></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
     },
 
     renderLocations: function(locations) {
