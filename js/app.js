@@ -582,17 +582,17 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-        $("#pictures").empty();
+        $(".pictures").empty();
         view.lazyLoad();
 
         for (var i = 0; i < 10; i++) {
 
             var pictureURL = pictures.results[i].urls.regular;
-            var pictureAuthorFullName = pictures.results[i].user.first_name +"  "+ pictures.results[i].user.last_name;
+            var pictureAuthorUsername = "@"+pictures.results[i].user.username;
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
 
-            $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorFullName + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
+            $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
         }
     }
 
