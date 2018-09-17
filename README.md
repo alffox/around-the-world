@@ -16,7 +16,7 @@ And also: What's going on at my location at the moment ? How can I get useful in
 
 ## How to run this app ?
 1) Clone the project or download it
-2) Create a file called APIKeys.js in the directory $project_root/js/
+2) Create a file called `APIKeys.js` in the directory $project_root/js/
 3) Add the below text:
 
 ```
