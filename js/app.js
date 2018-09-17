@@ -348,9 +348,9 @@ var octopus = {
 /*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
-        octopus.getWiki(clickedLocationCountry);
+        octopus.getWiki(clickedLocationCountry);*/
         octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
+/*        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -485,7 +485,7 @@ var view = {
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+            var newsHTML = ('<ul class="list-group"><article><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></article></li></ul>');
 
             $('.news').append(newsHTML);
         }
@@ -556,7 +556,7 @@ var view = {
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
 
-            $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
+            $(".pictures").append('<figure><div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><figcaption><p>' + pictureDescription + '</p></figcaption>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div><figure>');
         }
     }
 
