@@ -16,11 +16,20 @@ And also: What's going on at my location at the moment ? How can I get useful in
 
 ## How to run this app ?
 1) Clone the project or download it
-2) Open the file $project_root/js/APIKeys.js
-3) Replace the empty double quotes with your API Keys and save
-4) Open the file $project_root/index.html in your browser
-5) The predifined location is Liferay's headquarter in Diamond Bar, USA
-6) To change location, simply switch it by pressing on the buttons with the flags or in the Continent's drodown lists in the navbar
+2) Create a file called APIKeys.js in the directory $project_root/js/
+3) Add the below text:
+
+```
+var newsAPIKey = ''; //https://newsapi.org/
+var weatherAPIKey = ''; //http://api.openweathermap
+var webCamAPIKey = ''; //https://www.webcams.travel/
+var unsplashAPIKey = '';//https://unsplash.com/
+```
+
+4) In the file $project_root/index.html before the closing `body` tag, replace `AIzaSyBsIBNOK4MKVdeJYkugTaC7SGUekg4ine4` with your Google Maps API Key
+5) Open the file $project_root/index.html in your browser
+6) The predifined location is Liferay's headquarter in Diamond Bar, USA
+7) To change location, click on the buttons with the flags or in the Continent's dropdown lists in the navbar
 
 ## Can I edit the location list ?
 
