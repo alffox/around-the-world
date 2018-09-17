@@ -373,7 +373,7 @@ var octopus = {
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getRenderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
         octopus.getWiki(clickedLocationCountry);*/
-        octopus.getPictures(clickedLocationCountry);
+        //octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
@@ -502,7 +502,7 @@ var view = {
     },
 
     renderLocationTop: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
-        $('.location').append('<div class="' + clickedLocationCountryCode + ' mx-auto"></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
+        $('.location').empty().append('<div class="badge top-flag-container mx-auto"><div class="' + clickedLocationCountryCode + ' top-flag mx-auto"></div></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
     },
 
     renderLocations: function(locations) {
