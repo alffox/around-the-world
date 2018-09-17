@@ -10,24 +10,6 @@
     width: 50px;
 }
 
-.flag-button {
-    width: 50px;
-    height: 37px;
-    min-height: 37px;
-}
-
-.flag-dropdown {
-    width: 30px;
-    margin-left: 0rem;
-    margin-right: 0.25rem;
-}
-
-.flag-button,
-.flag-dropdown {
-    pointer-events: none;
-    cursor: pointer;
-}
-
 .dropdown-item {
     padding: 0.25rem;
     margin-right: 2.25rem;
@@ -79,16 +61,37 @@
   }
 }
 
-.top-flag-container {
+.flag-top-container {
     width: 140px;
     height: 96px;
     min-height: 96px;
     background-color: #1AA0E8;
 }
-.top-flag {
+.flag-top {
     width: 100px;
     height: 88px;
     min-height: 88px;
+}
+
+.flag-button {
+    width: 50px;
+    height: 37px;
+    min-height: 37px;
+}
+
+.flag-dropdown {
+    width: 30px;
+    height: 15px;
+    min-height: 15px;
+
+    margin-left: 0rem;
+    margin-right: 0.25rem;
+}
+
+.flag-button,
+.flag-dropdown {
+    pointer-events: none;
+    cursor: pointer;
 }
 
 /* united_states */

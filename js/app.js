@@ -358,7 +358,6 @@ var octopus = {
     },
 
     setCurrentLocation: function(locations, index) {
-        //var clickedLocationFlag = locations[index].flag;
         var clickedLocation = locations[index].title;
         var clickedLocationCountryCode = locations[index].ISO_3166_1_alpha_2;
         var clickedLocationCountry = locations[index].country;
@@ -502,19 +501,19 @@ var view = {
     },
 
     renderLocationTop: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
-        $('.location').empty().append('<div class="badge top-flag-container mx-auto"><div class="' + clickedLocationCountryCode + ' top-flag mx-auto"></div></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
+        $('.location').empty().append('<div class="badge flag-top-container mx-auto"><div class="' + clickedLocationCountryCode + ' flag-top mx-auto"></div></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
     },
 
     renderLocations: function(locations) {
         for (var i = 0; i < locations.length; i++) {
 
-            var placeFlag = locations[i].flag;
+            var placeCountryCode = locations[i].ISO_3166_1_alpha_2;
             var place = locations[i].title;
             var country = locations[i].country;
 
-            var buttonHTML = ('<button type="button" class="btn btn-info m-1"><img class="img-fluid flag-button img-thumbnail mr-3" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</button>');
+            var buttonHTML = ('<button type="button" class="btn btn-info m-1"><div class="' + placeCountryCode + ' flag-button mx-auto mr-3"></div>' + place + ', ' + country + '</button>');
 
-            var dropdownHTML = ('<a class="dropdown-item"><img class="img-fluid flag-dropdown img-thumbnail pr1" src="' + placeFlag + '" alt="Flag of ' + country + '">' + place + ', ' + country + '</a>');
+            var dropdownHTML = ('<a class="dropdown-item"><div class="' + placeCountryCode + ' d-inline-block flag-dropdown"></div>' + place + ', ' + country + '</a>');
 
             $('.location-tags').append(buttonHTML);
 
