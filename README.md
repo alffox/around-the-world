@@ -3,7 +3,7 @@
 # Liferay Around the World
 A Single Page Application showing information for Liferay locations around the world: https://www.liferay.com/locations
 
-All APIs have been used for demo, non-commercial purposes. You may read more here:
+All APIs have been used for demo, non-commercial purposes. You may read more here: https://github.com/alffox/around-the-world#api--credit
 
 ## Purpose of this project
 Back in late 90's when having an internet connection was not always possible, I used to get to know people from all over the world through paper letters. At a point, I decided to ask each of my penpals to draw a flag of the country they were writing from and send it back to me. Eventually, after collecting all of them, I could get a huge poster, hanging on my room's wall, showing me the colors of the world I was in touch with. This project is inspired by those times.
