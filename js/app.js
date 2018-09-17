@@ -345,12 +345,12 @@ var octopus = {
 
         view.renderLocationTop(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-/*        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
+        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getRenderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
-        octopus.getWiki(clickedLocationCountry);*/
-        //octopus.getPictures(clickedLocationCountry);
+        octopus.getWiki(clickedLocationCountry);
+        octopus.getPictures(clickedLocationCountry);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName) {
