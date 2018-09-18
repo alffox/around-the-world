@@ -57,7 +57,7 @@ Due to the amount of operations the app does and could do in the future with new
 
 ### API / Credit
 - [News API](https://newsapi.org/)
-- [OpenWeatherMap](http://api.openweathermap)
+- [OpenWeatherMap](https://openweathermap.org/)
 - [Webcams.travel](https://www.webcams.travel/)
 - [Wikipedia](https://en.wikipedia.org)
 - [Unsplash](https://unsplash.com/)
