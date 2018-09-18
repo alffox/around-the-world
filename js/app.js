@@ -345,11 +345,11 @@ var octopus = {
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
         octopus.getNews(clickedLocationCountry, clickedLocationStateName, clickedLocation);
-/*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
+        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
     getNews: function(clickedLocationCountry, clickedLocationStateName, clickedLocation) {
