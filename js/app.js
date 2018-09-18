@@ -342,7 +342,7 @@ var octopus = {
         var clickedLocationLat = locations[index].location.lat;
         var clickedLocationLon = locations[index].location.lon;
 
-        view.renderLocationTop(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
+        view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
         octopus.getNews(clickedLocationCountry, clickedLocationStateName, clickedLocation);
 /*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
@@ -445,8 +445,8 @@ var view = {
         });
     },
 
-    renderLocationTop: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
-        $('.location').empty().append('<div class="badge flag-top-container mx-auto"><div class="' + clickedLocationCountryCode + ' flag-top mx-auto"></div></div><h2>' + clickedLocation + ', ' + clickedLocationCountry + '</h2>');
+    renderLocationNavbar: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
+        $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div>');
     },
 
     renderLocations: function(locations) {

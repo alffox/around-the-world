@@ -40,18 +40,8 @@ a.navbar-brand {
 .map {
     height: 40vh;
 }
-.flag-top-container {
-    width: 140px;
-    height: 96px;
-    min-height: 96px;
-    background-color: #1AA0E8;
-}
-.flag-top {
-    width: 100px;
-    height: 88px;
-    min-height: 88px;
-}
-.flag-button {
+.flag-button,
+.flag-navbar {
     width: 50px;
     height: 37px;
     min-height: 37px;
