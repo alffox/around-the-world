@@ -124,14 +124,70 @@
 
         </main>
 
-        <footer class="row footer text-muted text-center p-3">
-            <div class="col-md-12">
-                <span class="col-md-3">About</span>
-                <span class="col-md-3">New issue / Feature Request</span>
-                <span class="col-md-3">More about Locations</span>
-                <span class="col-md-3">Powered by ...</span>
-            </div>
-        </footer>
+        <div class="row">
+
+            <footer class="col-md-12 footer text-muted text-center font-small">
+
+                <button type="button" class="btn btn-light col-md-3 mr-5" data-toggle="modal" data-target="#aboutModal">
+                    About
+                </button>
+                <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="aboutModalLabel">About this App</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Liferay Around the World is a Single Page Application showing information for Liferay locations around the world: <a href="https://www.liferay.com/locations" target="_blank">https://www.liferay.com/locations</a></p>
+                                <p>All APIs have been used for demo, non-commercial purposes. You may read more here: <a href="https://github.com/alffox/around-the-world#api--credit" target="_blank">https://github.com/alffox/around-the-world#api--credit</a></p>
+                                <h2><a id="user-content-purpose-of-this-project" class="anchor" aria-hidden="true" href="#purpose-of-this-project"></a>Purpose of this project</h2>
+                                <p>Back in late 90's when having an internet connection was not always possible, I used to get to know people from all over the world through paper letters. At a point, I decided to ask each of my penpals to draw a flag of the country they were writing from and send it back to me. Eventually, after collecting all of them, I could get a huge poster, hanging on my room's wall, showing me the colors of the world I was in touch with. This project is inspired by those times.</p>
+                                <p>Where are my co-workers worldwide living? What's going on at their location right now? How can I get to know better other Liferay offices worldwide countries ?</p>
+                                <p>And also: What's going on at my location at the moment ? How can I get useful information, all in one place ?</p>
+                                <p><strong>Around the World</strong> would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a <a href="https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)" target="_blank">popular song of the late 90's</a></p>
+                                <p>More on GitHub: <a href="https://github.com/alffox/around-the-world" target="_blank">https://github.com/alffox/around-the-world</a></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-light col-md-3 mr-5"><a href="https://github.com/alffox/around-the-world/issues" target="_blank">New issue / Feature Request</a></button>
+                <button type="button" class="btn btn-light col-md-3 mr-5" data-toggle="modal" data-target="#poweredByModal">
+                    Powered by ...
+                </button>
+                <div class="modal fade" id="poweredByModal" tabindex="-1" role="dialog" aria-labelledby="poweredByModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="poweredByModalLabel">Powered by ...</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Powered by ...</h3>
+                                <p><a href="https://newsapi.org/">News API</a></p>
+                                <p><a href="https://openweathermap.org/">OpenWeatherMap</a></p>
+                                <p><a href="https://www.webcams.travel/">Webcams.travel</a></p>
+                                <p><a href="https://en.wikipedia.org">Wikipedia</a></p>
+                                <p><a href="https://unsplash.com/">Unsplash</a></p>
+                                <p><a href="https://developers.google.com/maps/documentation/">GoogleMaps API</a></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </footer>
+
+        </div>
 
     </div>
 
