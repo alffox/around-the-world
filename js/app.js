@@ -344,7 +344,7 @@ var octopus = {
 
         view.renderLocationTop(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-        octopus.getNews(clickedLocationCountry, clickedLocationStateName);
+        octopus.getNews(clickedLocationCountry, clickedLocationStateName, clickedLocation);
 /*        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
@@ -352,7 +352,7 @@ var octopus = {
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
     },
 
-    getNews: function(clickedLocationCountry, clickedLocationStateName) {
+    getNews: function(clickedLocationCountry, clickedLocationStateName, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
             url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
@@ -361,7 +361,7 @@ var octopus = {
                 view.renderAPIError(errorKey);
             },
             success: function(news) {
-                view.renderNews(news);
+                view.renderNews(news, clickedLocation, clickedLocationCountry);
             }
         });
     },
@@ -474,8 +474,8 @@ var view = {
         }
     },
 
-    renderNews: function(news) {
-
+    renderNews: function(news, clickedLocation, clickedLocationCountry) {
+        $('.news-current-location').empty().append(clickedLocation + ', ' +clickedLocationCountry);
         $('.news').empty();
 
         for (var i = 0; i < 15; i++) {
