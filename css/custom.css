@@ -40,7 +40,12 @@ a.navbar-brand {
 .map {
     height: 40vh;
 }
-.flag-button,
+.flag-button {
+      width: 41px;
+    height: 28px;
+    min-height: 28px;
+}
+
 .flag-navbar {
     width: 50px;
     height: 37px;
