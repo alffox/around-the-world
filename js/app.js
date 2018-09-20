@@ -512,7 +512,6 @@ var view = {
         var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
 
         $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
-
     },
 
     renderWiki: function(wiki) {
