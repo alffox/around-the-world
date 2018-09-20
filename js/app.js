@@ -344,7 +344,7 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-        octopus.getNews(clickedLocationCountry, clickedLocationStateName, clickedLocation);
+        octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
@@ -352,7 +352,7 @@ var octopus = {
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
-    getNews: function(clickedLocationCountry, clickedLocationStateName, clickedLocation) {
+    getNews: function(clickedLocationCountry, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
             url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry}&sortBy=popularity&apiKey=${newsAPIKey}`,
@@ -361,7 +361,7 @@ var octopus = {
                 view.renderAPIError(errorKey);
             },
             success: function(news) {
-                view.renderNews(news, clickedLocation, clickedLocationCountry);
+                view.renderNews(news, clickedLocationCountry, clickedLocation);
             }
         });
     },
@@ -474,8 +474,8 @@ var view = {
         }
     },
 
-    renderNews: function(news, clickedLocation, clickedLocationCountry) {
-        $('.news-current-location').empty().append(clickedLocation + ', ' +clickedLocationCountry);
+    renderNews: function(news, clickedLocationCountry, clickedLocation) {
+        $('.news-current-location').empty().append( clickedLocationCountry);
         $('.news').empty();
 
         for (var i = 0; i < 15; i++) {
@@ -483,7 +483,7 @@ var view = {
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-secondary">' + newsSource + '</span></li></ul>');
 
             $('.news').append(newsHTML);
         }
