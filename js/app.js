@@ -344,12 +344,12 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-        octopus.getNews(clickedLocationCountry, clickedLocation);
-        octopus.getWeather(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
+        //octopus.getNews(clickedLocationCountry, clickedLocation);
+        octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+/*        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
     },
 
     getNews: function(clickedLocationCountry, clickedLocation) {
@@ -366,7 +366,7 @@ var octopus = {
         });
     },
 
-    getWeather: function(clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
+    getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
         var errorKey = '.weather';
         $.ajax({
             url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
@@ -375,7 +375,7 @@ var octopus = {
                 view.renderAPIError(errorKey);
             },
             success: function(weather) {
-                view.renderWeather(weather);
+                view.renderWeather(weather, clickedLocation);
             }
         });
     },
@@ -490,17 +490,16 @@ var view = {
 
     },
 
-    renderWeather: function(weather) {
+    renderWeather: function(weather, clickedLocation) {
 
         $(".weather").empty();
 
-        var place = weather.name;
         var temperature = Math.round(weather.main.temp);
         var weatherDescription = weather.weather[0].main;
         var iconKey = weather.weather[0].icon;
         var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").append('<p>' + place + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
+        $(".weather").append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
 
     },
 
