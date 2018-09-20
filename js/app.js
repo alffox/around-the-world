@@ -355,7 +355,7 @@ var octopus = {
     getNews: function(clickedLocationCountry, clickedLocationStateName, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
-            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry};${clickedLocationStateName}&sortBy=popularity&apiKey=${newsAPIKey}`,
+            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry}&sortBy=popularity&apiKey=${newsAPIKey}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -483,7 +483,7 @@ var view = {
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
-            var newsHTML = ('<ul class="list-group"><article><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></article></li></ul>');
+            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
 
             $('.news').append(newsHTML);
         }
