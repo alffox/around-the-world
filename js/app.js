@@ -344,9 +344,9 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-        //octopus.getNews(clickedLocationCountry, clickedLocation);
+/*        octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-/*        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
@@ -492,37 +492,33 @@ var view = {
 
     renderWeather: function(weather, clickedLocation) {
 
-        $(".weather").empty();
-
         var temperature = Math.round(weather.main.temp);
         var weatherDescription = weather.weather[0].main;
         var iconKey = weather.weather[0].icon;
         var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
+        $(".weather").empty().append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
 
     },
 
     renderWebCam: function(webcam) {
 
-        $(".webcam").empty();
-
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
         var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
 
-        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
+        $(".webcam").empty().append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
     },
 
     renderWiki: function(wiki) {
 
-        $(".wiki").empty();
+        $(".wiki");
 
         var wikiTitle = wiki.title;
         var wikiExtract = wiki.extract;
         var wikiUrl = wiki.content_urls.mobile.page;
 
 
-        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Find more ...</a>");
+        $(".wiki").empty().append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Find more ...</a>");
 
     },
 
@@ -547,7 +543,6 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-        $(".pictures").empty();
         view.lazyLoad();
 
         for (var i = 0; i < 10; i++) {
@@ -557,7 +552,7 @@ var view = {
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
 
-            $(".pictures").append('<figure><div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><figcaption><p>' + pictureDescription + '</p></figcaption>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div><figure>');
+            $(".pictures").empty().append('<figure><div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><figcaption><p>' + pictureDescription + '</p></figcaption>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div><figure>');
         }
     }
 
