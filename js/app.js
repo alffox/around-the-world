@@ -347,9 +347,9 @@ var octopus = {
 /*        octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
-        octopus.getWiki(clickedLocationCountry);
+        octopus.getWiki(clickedLocationCountry);*/
         octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
+        //view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
     getNews: function(clickedLocationCountry, clickedLocation) {
@@ -543,11 +543,12 @@ var view = {
     },
 
     renderPictures: function(pictures) {
+        //$(".pictures")
         view.lazyLoad();
 
         for (var i = 0; i < 10; i++) {
 
-            var pictureURL = pictures.results[i].urls.regular;
+            var pictureURL = pictures.results[i].urls.small;
             var pictureAuthorUsername = "@" + pictures.results[i].user.username;
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
