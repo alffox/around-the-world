@@ -20,6 +20,11 @@ a.navbar-brand {
 .list-group:hover {
   transform: scale(1.02);
 }
+.news-picture {
+  width: 15%;
+  height: 7%;
+  min-height: 7%;
+}
 .weather {
     color: #fff;
     background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);

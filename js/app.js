@@ -295,7 +295,7 @@ var octopus = {
     initData: function() {
         octopus.getLocations();
         view.renderLocations(locations);
-        octopus.setCurrentLocation(locations, 0);
+        octopus.setCurrentLocation(locations, 12);
         octopus.getButtonsLocationData(locations);
         octopus.getDropdownLocationData(locations);
     },
@@ -344,12 +344,12 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-/*        octopus.getNews(clickedLocationCountry, clickedLocation);
+        octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
-        octopus.getWiki(clickedLocationCountry);*/
+        octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
-        //view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
     getNews: function(clickedLocationCountry, clickedLocation) {
@@ -479,11 +479,16 @@ var view = {
         $('.news').empty();
 
         for (var i = 0; i < 15; i++) {
+            var newsPicture = news.articles[i].urlToImage;
             var newsTitle = news.articles[i].title;
             var newsUrl = news.articles[i].url;
             var newsSource = news.articles[i].source.name;
 
+            if (newsPicture !== null) {
+            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+            } else {
             var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-secondary">' + newsSource + '</span></li></ul>');
+            }
 
             $('.news').append(newsHTML);
         }
