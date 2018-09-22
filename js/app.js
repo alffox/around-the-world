@@ -306,7 +306,7 @@ var octopus = {
 
     getButtonsLocationData: function(locations) {
 
-        var checks = document.querySelectorAll('button');
+        var checks = document.querySelectorAll('.flag-top');
 
         checks.forEach(function(check) {
             check.addEventListener('click', checkIndex);
@@ -456,7 +456,7 @@ var view = {
             var place = locations[i].title;
             var country = locations[i].country;
 
-            var buttonHTML = ('<button type="button" class="btn btn-info m-1"><div class="' + placeCountryCode + ' flag-button mx-auto mr-3"></div>' + place + ', ' + country + '</button>');
+            var buttonHTML = ('<button type="button" class="btn btn-info m-1 flag-top"><div class="' + placeCountryCode + ' flag-button mx-auto mr-3"></div>' + place + ', ' + country + '</button>');
 
             var dropdownHTML = ('<a class="dropdown-item"><div class="' + placeCountryCode + ' d-inline-block flag-dropdown"></div>' + place + ', ' + country + '</a>');
 
