@@ -369,7 +369,7 @@ var octopus = {
     getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
         var errorKey = '.weather';
         $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&appid=${weatherAPIKey}&units=metric`,
+            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric&appid=${weatherAPIKey}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
