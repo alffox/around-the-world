@@ -546,7 +546,7 @@ var view = {
 
         for (var i = 0; i < 10; i++) {
 
-            var pictureURL = pictures.results[i].urls.small;
+            var pictureURL = pictures.results[i].urls.regular;
             var pictureAuthorUsername = "@" + pictures.results[i].user.username;
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
