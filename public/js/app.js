@@ -355,7 +355,7 @@ var octopus = {
     getNews: function(clickedLocationCountry, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
-            url: `https://newsapi.org/v2/everything?q=${clickedLocationCountry}&sortBy=popularity&apiKey=${newsAPIKey}`,
+            url: `http://localhost:3000/newsEndpoint?q=${clickedLocationCountry}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
