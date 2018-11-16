@@ -348,8 +348,8 @@ var octopus = {
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
-        /*octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
+        octopus.getPictures(clickedLocationCountry);
+        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
     getNews: function(clickedLocationCountry, clickedLocation) {
@@ -406,14 +406,14 @@ var octopus = {
                 view.renderWiki(wiki);
             }
         });
-    }/*,
+    },
 
     getPictures: function(clickedLocationCountry) {
         var errorKey = ".pictures";
         var randomPageNumber = Math.floor(Math.random() * 20);
 
         $.ajax({
-            url: `https://api.unsplash.com/search/photos?page=${randomPageNumber}&client_id=${unsplashAPIKey}&query=${clickedLocationCountry}`, //client-id=Access Key
+            url: `http://localhost:3000/picturesEndpoint?page=${randomPageNumber}&query=${clickedLocationCountry}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -422,7 +422,7 @@ var octopus = {
                 view.renderPictures(pictures);
             }
         });
-    }*/
+    }
 
 };
 

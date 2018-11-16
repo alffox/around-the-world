@@ -97,7 +97,32 @@ const server = http.createServer((req, res) => {
       }).on('error', function (e) {
           console.log(e.message);
       });
+  }
 
+  else if (req.url.startsWith("/picturesEndpoint?")) {
+
+        var picturesQueryString = req.url.substring("/picturesEndpoint".length);
+        picturesQueryString += "&client_id="+process.env.unsplashAPIKey;
+
+        var picturesUrl = "https://api.unsplash.com/search/photos" + picturesQueryString;
+
+      https.get(picturesUrl, (resp) =>{
+        let rawData = '';
+        resp.on('data', (chunk) => { rawData += chunk; });
+        resp.on('end', () => {
+          try {
+           const parsedData = JSON.parse(rawData);
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', clientHost);
+            res.end(JSON.stringify(parsedData));
+          } catch (e) {
+            console.error(e.message);
+          }
+        });
+      }).on('error', function (e) {
+          console.log(e.message);
+      });
   }
 
 });
