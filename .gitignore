@@ -1,4 +1,4 @@
-public/startServer.sh
+startSite.sh
 .env
 node_modules
 APIKeys.js
