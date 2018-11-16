@@ -1,3 +1,5 @@
 startServer.sh
-js/APIKeys.js
+.env
+node_modules
+APIKeys.js
 TODO

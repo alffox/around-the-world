@@ -1,0 +1,23 @@
+{
+  "name": "around-the-world",
+  "version": "2.0.0",
+  "description": "A Single Page Application showing information for Liferay locations around the world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alffox/around-the-world.git"
+  },
+  "author": "Alfonso Crisci",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/alffox/around-the-world/issues"
+  },
+  "homepage": "https://github.com/alffox/around-the-world#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "newsapi": "^2.4.0"
+  }
+}
