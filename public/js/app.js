@@ -346,10 +346,10 @@ var octopus = {
 
         octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
+        /*octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
-        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+        view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
     },
 
     getNews: function(clickedLocationCountry, clickedLocation) {
@@ -369,7 +369,7 @@ var octopus = {
     getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
         var errorKey = '.weather';
         $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/weather?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric&appid=${weatherAPIKey}`,
+            url: `http://localhost:3000/weatherEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -378,7 +378,7 @@ var octopus = {
                 view.renderWeather(weather, clickedLocation);
             }
         });
-    },
+    }/*,
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
         var errorKey = ".webcam";
@@ -430,7 +430,7 @@ var octopus = {
                 view.renderPictures(pictures);
             }
         });
-    }
+    }*/
 
 };
 
