@@ -346,9 +346,9 @@ var octopus = {
 
         octopus.getNews(clickedLocationCountry, clickedLocation);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
-        /*octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
+        octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
-        octopus.getPictures(clickedLocationCountry);
+        /*octopus.getPictures(clickedLocationCountry);
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);*/
     },
 
@@ -378,21 +378,13 @@ var octopus = {
                 view.renderWeather(weather, clickedLocation);
             }
         });
-    }/*,
+    },
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
         var errorKey = ".webcam";
-        if (clickedLocationCountryCode === "ma" || "cn" || "in") {
-            var api = `https://webcamstravel.p.mashape.com/webcams/list/country=${clickedLocationCountryCode}/orderby=random?show=webcams%3Aimage%2Clocation&amp;lang=en`;
-        } else {
-            var api = `https://webcamstravel.p.mashape.com/webcams/list/nearby=${clickedLocationLat},${clickedLocationLon},50/orderby=random/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en`;
-        }
         $.ajax({
-            headers: {
-                "X-Mashape-Key": webCamAPIKey,
-                "X-Mashape-Host": "webcamstravel.p.mashape.com"
-            },
-            url: api,
+            url: `http://localhost:3000/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
+            method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
             },
@@ -414,7 +406,7 @@ var octopus = {
                 view.renderWiki(wiki);
             }
         });
-    },
+    }/*,
 
     getPictures: function(clickedLocationCountry) {
         var errorKey = ".pictures";

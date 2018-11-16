@@ -28,6 +28,7 @@ const server = http.createServer((req, res) => {
             }
         });
     }
+
     else if (req.url.startsWith("/weatherEndpoint?")) {
     /* As we don't use a specific API for weather, we just want to pass the
       query string starting with '?' to the weather api url, that's why we check
@@ -55,12 +56,52 @@ const server = http.createServer((req, res) => {
       }).on('error', function (e) {
           console.log(e.message);
       });
+  }
+
+  else if (req.url.startsWith("/webcamEndpoint?countryCode=")) {
+    var queryParams = query.parse(req.url.substring("/webcamEndpoint?".length));
+
+    if (queryParams['countryCode'] === "ma" || "cn" || "in") {
+        var api = '/webcams/list/country=' + queryParams['countryCode'] +'/orderby=random?show=webcams%3Aimage%2Clocation&amp;lang=en';
+    } else {
+        var api = '/webcams/list/nearby=' + queryParams['lat'] + ',' + queryParams['lon']+ ',50/orderby=random/limit=1?show=webcams%3Aimage%2Clocation&amp;lang=en';
+    }
+
+      var options = {
+        host : 'webcamstravel.p.mashape.com',
+        port : 443,
+        path : api,
+        method : 'GET',
+        headers: {
+             "X-Mashape-Key": process.env.webCamAPIKey,
+             "X-Mashape-Host": "webcamstravel.p.mashape.com"
+        }
+      };
+
+      https.get(options, (resp) =>{
+        let rawData = '';
+        resp.on('data', (chunk) => { rawData += chunk; });
+        resp.on('end', () => {
+          try {
+           const parsedData = JSON.parse(rawData);
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', clientHost);
+            res.end(JSON.stringify(parsedData));
+
+            console.log(JSON.stringify(parsedData));
+          } catch (e) {
+            console.error(e.message);
+          }
+        });
+      }).on('error', function (e) {
+          console.log(e.message);
+      });
 
   }
+
 });
 
-
-
 server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
