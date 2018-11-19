@@ -6,6 +6,7 @@ const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.newsAPIKey);
 const express = require('express');
+const morgan = require('morgan');
 
 const hostname = '127.0.0.1';
 const port = 3000;
