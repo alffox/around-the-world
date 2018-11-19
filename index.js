@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const http = require('http');
 const https = require('https');
 const query = require('querystring');
 const NewsAPI = require('newsapi');
