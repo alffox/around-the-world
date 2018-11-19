@@ -9,7 +9,7 @@ const newsapi = new NewsAPI(process.env.newsAPIKey);
 
 const hostname = '127.0.0.1';
 const port = 3000;
-const clientHost = 'http://localhost:8000';
+//const clientHost = 'liferay-aroundthewordapi.wedeploy.io:3000';
 
 const server = http.createServer((req, res) => {
     if (req.url.startsWith("/newsEndpoint?q=")) {

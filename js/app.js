@@ -355,7 +355,7 @@ var octopus = {
     getNews: function(clickedLocationCountry, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
-            url: `http://localhost:3000/newsEndpoint?q=${clickedLocationCountry}`,
+            url: `https://liferay-aroundthewordapi.wedeploy.io:3000/newsEndpoint?q=${clickedLocationCountry}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -369,7 +369,7 @@ var octopus = {
     getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
         var errorKey = '.weather';
         $.ajax({
-            url: `http://localhost:3000/weatherEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
+            url: `https://liferay-aroundthewordapi.wedeploy.io:3000/weatherEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -383,7 +383,7 @@ var octopus = {
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
         var errorKey = ".webcam";
         $.ajax({
-            url: `http://localhost:3000/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
+            url: `https://liferay-aroundthewordapi.wedeploy.io:3000/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
@@ -413,7 +413,7 @@ var octopus = {
         var randomPageNumber = Math.floor(Math.random() * 20);
 
         $.ajax({
-            url: `http://localhost:3000/picturesEndpoint?page=${randomPageNumber}&query=${clickedLocationCountry}`,
+            url: `https://liferay-aroundthewordapi.wedeploy.io:3000/picturesEndpoint?page=${randomPageNumber}&query=${clickedLocationCountry}`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
