@@ -2,10 +2,6 @@ require('dotenv').config();
 
 const https = require('https');
 const query = require('querystring');
-//const NewsAPI = require('newsapi');
-
-//var newsAPIKey = process.env.newsAPIKey;
-//const newsapi = new NewsAPI(newsAPIKey);
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
