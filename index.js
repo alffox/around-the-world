@@ -2,9 +2,10 @@ require('dotenv').config();
 
 const https = require('https');
 const query = require('querystring');
-const NewsAPI = require('newsapi');
+//const NewsAPI = require('newsapi');
 
-const newsapi = new NewsAPI(process.env.newsAPIKey);
+//var newsAPIKey = process.env.newsAPIKey;
+//const newsapi = new NewsAPI(newsAPIKey);
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -28,7 +29,33 @@ app.get('/js*', function (req, res) {
 });
 
 app.get('/newsEndpoint*', function(req, res) {
-    newsapi.v2.everything({
+
+    var newsQueryString = req.url.substring("/newsEndpoint".length);
+    newsQueryString += "&apiKey=";
+    newsQueryString += process.env.newsAPIKey;
+
+    var newsUrl = "https://newsapi.org/v2/everything" + newsQueryString;
+    https.get(newsUrl, (resp) => {
+        let rawData = '';
+        resp.on('data', (chunk) => {
+            rawData += chunk;
+        });
+        resp.on('end', () => {
+            try {
+                const parsedData = JSON.parse(rawData);
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(parsedData));
+
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    }).on('error', function(e) {
+        console.log(e.message);
+    });
+
+/*    newsapi.v2.everything({
         q: req.url.substring("/newsEndpoint?q=".length),
         sortBy: 'popularity',
     }).then(response => {
@@ -39,7 +66,7 @@ app.get('/newsEndpoint*', function(req, res) {
         } catch (e) {
             console.error(e.message);
         }
-    });
+    });*/
 });
 
 app.get('/weatherEndpoint*', function(req, res) {

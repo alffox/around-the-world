@@ -355,7 +355,7 @@ var octopus = {
     getNews: function(clickedLocationCountry, clickedLocation) {
         var errorKey = '.news';
         $.ajax({
-            url: `https://liferay-aroundtheworld.wedeploy.io/newsEndpoint?q=${clickedLocationCountry}`,
+            url: `https://liferay-aroundtheworld.wedeploy.io/newsEndpoint?q=${clickedLocationCountry}&sortBy=popularity`,
             method: "GET",
             error: function() {
                 view.renderAPIError(errorKey);
