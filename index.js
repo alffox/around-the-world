@@ -54,19 +54,6 @@ app.get('/newsEndpoint*', function(req, res) {
     }).on('error', function(e) {
         console.log(e.message);
     });
-
-/*    newsapi.v2.everything({
-        q: req.url.substring("/newsEndpoint?q=".length),
-        sortBy: 'popularity',
-    }).then(response => {
-        try {
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(response));
-        } catch (e) {
-            console.error(e.message);
-        }
-    });*/
 });
 
 app.get('/weatherEndpoint*', function(req, res) {
