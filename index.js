@@ -11,6 +11,22 @@ const path = require('path');
 const app = express();
 const port = 80;
 
+app.use(morgan('combined'));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.get('/css*', function (req, res) {
+  res.sendFile(path.join(__dirname + req.url));
+});
+app.get('/images*', function (req, res) {
+  res.sendFile(path.join(__dirname + req.url));
+});
+app.get('/js*', function (req, res) {
+  res.sendFile(path.join(__dirname + req.url));
+});
+
 app.get('/newsEndpoint*', function(req, res) {
     newsapi.v2.everything({
         q: req.url.substring("/newsEndpoint?q=".length),
@@ -28,7 +44,8 @@ app.get('/newsEndpoint*', function(req, res) {
 
 app.get('/weatherEndpoint*', function(req, res) {
     var wheatherQueryString = req.url.substring("/weatherEndpoint".length);
-    wheatherQueryString += "&appid=" += process.env.weatherAPIKey;
+    wheatherQueryString += "&appid=";
+    wheatherQueryString += process.env.weatherAPIKey;
 
     var weatherUrl = "https://api.openweathermap.org/data/2.5/weather" + wheatherQueryString;
     https.get(weatherUrl, (resp) => {
@@ -54,7 +71,8 @@ app.get('/weatherEndpoint*', function(req, res) {
 
 app.get('/picturesEndpoint*', function(req, res) {
     var picturesQueryString = req.url.substring("/picturesEndpoint".length);
-    picturesQueryString += "&client_id=" += process.env.unsplashAPIKey;
+    picturesQueryString += "&client_id=";
+    picturesQueryString += process.env.unsplashAPIKey;
 
     var pictureUrl = "https://api.unsplash.com/search/photos" + picturesQueryString;
     https.get(pictureUrl, (resp) => {
