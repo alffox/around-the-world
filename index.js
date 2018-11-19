@@ -113,6 +113,6 @@ app.get('/webcamEndpoint*', function(req, res) {
       });
 });
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, function () {
+  console.log('Listening on port 80');
 });
