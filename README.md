@@ -1,7 +1,10 @@
 ![A paper airplane](https://github.com/alffox/around-the-world/blob/master/images/favicon.svg)
 
 # Liferay Around the World
-A Single Page Application showing information for Liferay locations around the world: https://www.liferay.com/locations
+
+See the live site at: https://liferay-atw.wedeploy.io/
+
+Liferay Around the World is a Single Page Application showing information for Liferay locations around the world: https://www.liferay.com/locations
 
 All APIs have been used for demo, non-commercial purposes. You may read more here: https://github.com/alffox/around-the-world#api--credit
 
@@ -15,21 +18,8 @@ And also: What's going on at my location at the moment ? How can I get useful in
 **Around the World** would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a popular song of the late 90's: https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)
 
 ## How to run this app ?
-1) Clone the project or download it
-2) Create a file called `APIKeys.js` in the directory $project_root/js/
-3) Add the below text:
-
-```
-var newsAPIKey = ''; //https://newsapi.org/
-var weatherAPIKey = ''; //http://api.openweathermap
-var webCamAPIKey = ''; //https://www.webcams.travel/
-var unsplashAPIKey = '';//https://unsplash.com/
-```
-
-4) In the file $project_root/index.html before the closing `body` tag, replace `AIzaSyBsIBNOK4MKVdeJYkugTaC7SGUekg4ine4` with your Google Maps API Key
-5) Open the file $project_root/index.html in your browser
-6) The predifined location is Liferay's headquarter in Diamond Bar, USA
-7) To change location, click on the buttons with the flags or in the Continent's dropdown lists in the navbar
+1) Openthe live site at: https://liferay-atw.wedeploy.io/
+2) To change location, simply click on the buttons with the flags or in the continent's dropdown lists in the navbar
 
 ## Can I edit the location list ?
 
@@ -39,7 +29,7 @@ Yes. To add or modify locations:
 2) Ensure the $project_root/css/custom.css contains the class that will draw the relevant flag. If not present, add it in the same _base64_ format of the others
 
 ## Technical details
-The app is optimized for being use on mobile devices
+The app is optimized for being used on mobile devices
 
 ### Browser's compatibility
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome |
