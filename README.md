@@ -2,7 +2,7 @@
 
 # Liferay Around the World
 
-See the live site at: https://liferay-atw.wedeploy.io/
+See the live site at: https://liferay-aroundtheworld.wedeploy.io/
 
 Liferay Around the World is a Single Page Application showing information for Liferay locations around the world: https://www.liferay.com/locations
 
@@ -18,8 +18,8 @@ And also: What's going on at my location at the moment ? How can I get useful in
 **Around the World** would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a popular song of the late 90's: https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)
 
 ## How to run this app ?
-1) Openthe live site at: https://liferay-atw.wedeploy.io/
-2) To change location, simply click on the buttons with the flags or in the continent's dropdown lists in the navbar
+1) Openthe live site at: https://liferay-aroundtheworld.wedeploy.io/
+2) To switch location, simply click on the buttons with the flags or in the continent's dropdown lists in the navbar
 
 ## Can I edit the location list ?
 
@@ -34,7 +34,7 @@ The app is optimized for being used on mobile devices
 ### Browser's compatibility
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome |
 | --------- | --------- | --------- |
-| Edge| latest| latest|
+| latest| latest| latest|
 
 ### Design
 The app is created following the JavaScript Model View Octopus design pattern and inspired by the course [JavaScript Design Patterns](https://eu.udacity.com/course/javascript-design-patterns--ud989) by [Ben Jaffe](https://github.com/benjaffe)
