@@ -5,6 +5,9 @@ html {
 .favicon {
     width: 50px;
 }
+.btn {
+    font-size: 0.75rem;
+}
 a.navbar-brand {
     color: #fff !important;
 }
