@@ -522,6 +522,20 @@ var view = {
     },
 
     renderMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
+
+        //Prevent Gmaps API from loading Roboto font
+        var head = document.getElementsByTagName( 'head' )[0];
+        var insertBefore = head.insertBefore;
+        head.insertBefore = function( newElement, referenceElement ) {
+
+            if ( newElement.href && newElement.href.indexOf( 'https://fonts.googleapis.com/css?family=Roboto' ) === 0 ) {
+                return;
+            }
+
+            insertBefore.call( head, newElement, referenceElement );
+        };
+
+        //Render map
         var currentLatLng = {
             lat: clickedLocationLat,
             lng: clickedLocationLon
