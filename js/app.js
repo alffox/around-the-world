@@ -494,7 +494,7 @@ var view = {
         var temperature = Math.round(weather.main.temp);
         var weatherDescription = weather.weather[0].main;
         var iconKey = weather.weather[0].icon;
-        var iconURL = 'http://openweathermap.org/img/w/' + iconKey + '.png';
+        var iconURL = 'https://openweathermap.org/img/w/' + iconKey + '.png';
 
         $(".weather").empty().append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
 
