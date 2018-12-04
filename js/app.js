@@ -385,7 +385,7 @@ var octopus = {
                 view.renderAPIError(errorKey);
             },
             success: function(news) {
-                view.renderNews(news, clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
+                view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
             }
         });
 
