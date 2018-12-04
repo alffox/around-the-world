@@ -359,6 +359,7 @@ var octopus = {
         $('.news').empty();
 
         var topRegionalNews = `${restAPIServer}/topHeadlinesEndpoint?pageSize=6&country=${clickedLocationCountryCode}`;
+        var everythingEnglishNews = `${restAPIServer}/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=${clickedLocationCountry}`;
         var topTechNews = `${restAPIServer}/topHeadlinesEndpoint?category=technology&pageSize=4&country=${clickedLocationCountryCode}`;
         var topSportsNews = `${restAPIServer}/topHeadlinesEndpoint?category=sports&pageSize=2&country=${clickedLocationCountryCode}`;
 
@@ -376,6 +377,17 @@ var octopus = {
                 }
             });
         }
+
+        $.ajax({
+            url: everythingEnglishNews,
+            method: "GET",
+            error: function() {
+                view.renderAPIError(errorKey);
+            },
+            success: function(news) {
+                view.renderNews(news, clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
+            }
+        });
 
     },
 
