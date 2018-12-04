@@ -356,6 +356,8 @@ var octopus = {
 
     getNews: function(clickedLocationCountry, clickedLocation) {
         var errorKey = '.news';
+        $('.news').empty();
+
         $.ajax({
             url: `${restAPIServer}/newsEndpoint?q=${clickedLocationCountry}&sortBy=popularity`,
             method: "GET",
@@ -469,8 +471,6 @@ var view = {
     },
 
     renderNews: function(news, clickedLocationCountry, clickedLocation) {
-        $('.news-current-location').empty().append( clickedLocationCountry);
-        $('.news').empty();
 
         for (var i = 0; i < 15; i++) {
             var newsPicture = news.articles[i].urlToImage;
