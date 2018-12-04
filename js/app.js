@@ -557,7 +557,7 @@ var view = {
         var wikiUrl = wiki.content_urls.mobile.page;
 
 
-        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Wikipedia ...</a>");
+        $(".wiki").append('<p>' + wikiTitle + '</p>', '<p>' + wikiExtract + '</p>', '<a href="' + wikiUrl + '" target="_blank">Wikipedia ...</a>');
 
     },
 
