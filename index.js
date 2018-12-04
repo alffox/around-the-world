@@ -22,13 +22,13 @@ app.get('/js*', function (req, res) {
   res.sendFile(path.join(__dirname + req.url));
 });
 
-app.get('/newsEndpoint*', function(req, res) {
+app.get('/topHeadlinesEndpoint*', function(req, res) {
 
-    var newsQueryString = req.url.substring("/newsEndpoint".length);
+    var newsQueryString = req.url.substring("/topHeadlinesEndpoint".length);
     newsQueryString += "&apiKey=";
     newsQueryString += process.env.newsAPIKey;
 
-    var newsUrl = "https://newsapi.org/v2/everything" + newsQueryString;
+    var newsUrl = "https://newsapi.org/v2/top-headlines" + newsQueryString;
     https.get(newsUrl, (resp) => {
         let rawData = '';
         resp.on('data', (chunk) => {

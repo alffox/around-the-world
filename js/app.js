@@ -346,7 +346,7 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
-        octopus.getNews(clickedLocationCountry, clickedLocation);
+        octopus.getNews(clickedLocationCountry, clickedLocationCountryCode);
         octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
@@ -354,20 +354,29 @@ var octopus = {
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
     },
 
-    getNews: function(clickedLocationCountry, clickedLocation) {
+    getNews: function(clickedLocationCountry, clickedLocationCountryCode) {
         var errorKey = '.news';
         $('.news').empty();
 
-        $.ajax({
-            url: `${restAPIServer}/newsEndpoint?q=${clickedLocationCountry}&sortBy=popularity`,
-            method: "GET",
-            error: function() {
-                view.renderAPIError(errorKey);
-            },
-            success: function(news) {
-                view.renderNews(news, clickedLocationCountry, clickedLocation);
-            }
-        });
+        var topRegionalNews = `${restAPIServer}/topHeadlinesEndpoint?pageSize=6&country=${clickedLocationCountryCode}`;
+        var topTechNews = `${restAPIServer}/topHeadlinesEndpoint?category=technology&pageSize=4&country=${clickedLocationCountryCode}`;
+        var topSportsNews = `${restAPIServer}/topHeadlinesEndpoint?category=sports&pageSize=2&country=${clickedLocationCountryCode}`;
+
+        var allTopNews = [topRegionalNews, topTechNews, topSportsNews];
+
+        for (var i = 0; i < allTopNews.length; i++) {
+            $.ajax({
+                url: allTopNews[i],
+                method: "GET",
+                error: function() {
+                    view.renderAPIError(errorKey);
+                },
+                success: function(news) {
+                    view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
+                }
+            });
+        }
+
     },
 
     getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
@@ -470,7 +479,7 @@ var view = {
         }
     },
 
-    renderNews: function(news, clickedLocationCountry, clickedLocation) {
+    renderNews: function(news, clickedLocationCountry, clickedLocationCountryCode) {
 
         for (var i = 0; i < 15; i++) {
             var newsPicture = news.articles[i].urlToImage;
