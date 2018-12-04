@@ -8,18 +8,18 @@ const port = 80;
 
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get('/css*', function (req, res) {
-  res.sendFile(path.join(__dirname + req.url));
+app.get('/css*', function(req, res) {
+    res.sendFile(path.join(__dirname + req.url));
 });
-app.get('/images*', function (req, res) {
-  res.sendFile(path.join(__dirname + req.url));
+app.get('/images*', function(req, res) {
+    res.sendFile(path.join(__dirname + req.url));
 });
-app.get('/js*', function (req, res) {
-  res.sendFile(path.join(__dirname + req.url));
+app.get('/js*', function(req, res) {
+    res.sendFile(path.join(__dirname + req.url));
 });
 
 app.get('/topHeadlinesEndpoint*', function(req, res) {

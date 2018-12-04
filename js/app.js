@@ -500,9 +500,9 @@ var view = {
             var newsSource = news.articles[i].source.name;
 
             if (newsPicture !== null) {
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+                var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 m-1"><img class="img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
             } else {
-            var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-secondary">' + newsSource + '</span></li></ul>');
+                var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-secondary">' + newsSource + '</span></li></ul>');
             }
 
             $('.news').append(newsHTML);
@@ -545,15 +545,15 @@ var view = {
     renderMap: function(clickedLocationLat, clickedLocationLon, clickedLocation) {
 
         //Prevent Gmaps API from loading Roboto font
-        var head = document.getElementsByTagName( 'head' )[0];
+        var head = document.getElementsByTagName('head')[0];
         var insertBefore = head.insertBefore;
-        head.insertBefore = function( newElement, referenceElement ) {
+        head.insertBefore = function(newElement, referenceElement) {
 
-            if ( newElement.href && newElement.href.indexOf( 'https://fonts.googleapis.com/css?family=Roboto' ) === 0 ) {
+            if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
                 return;
             }
 
-            insertBefore.call( head, newElement, referenceElement );
+            insertBefore.call(head, newElement, referenceElement);
         };
 
         //Render map
