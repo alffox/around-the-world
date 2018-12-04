@@ -493,7 +493,7 @@ var view = {
 
     renderNews: function(news, clickedLocationCountry, clickedLocationCountryCode) {
 
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < news.articles.length; i++) {
             var newsPicture = news.articles[i].urlToImage;
             var newsTitle = news.articles[i].title;
             var newsUrl = news.articles[i].url;
