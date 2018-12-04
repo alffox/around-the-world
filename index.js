@@ -105,33 +105,6 @@ app.get('/weatherEndpoint*', function(req, res) {
     });
 });
 
-app.get('/picturesEndpoint*', function(req, res) {
-    var picturesQueryString = req.url.substring("/picturesEndpoint".length);
-    picturesQueryString += "&client_id=";
-    picturesQueryString += process.env.unsplashAPIKey;
-
-    var pictureUrl = "https://api.unsplash.com/search/photos" + picturesQueryString;
-    https.get(pictureUrl, (resp) => {
-        let rawData = '';
-        resp.on('data', (chunk) => {
-            rawData += chunk;
-        });
-        resp.on('end', () => {
-            try {
-                const parsedData = JSON.parse(rawData);
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify(parsedData));
-
-            } catch (e) {
-                console.error(e.message);
-            }
-        });
-    }).on('error', function(e) {
-        console.log(e.message);
-    });
-});
-
 app.get('/webcamEndpoint*', function(req, res) {
     var queryParams = query.parse(req.url.substring("/webcamEndpoint?".length));
 
@@ -153,6 +126,33 @@ app.get('/webcamEndpoint*', function(req, res) {
     };
 
     https.get(options, (resp) => {
+        let rawData = '';
+        resp.on('data', (chunk) => {
+            rawData += chunk;
+        });
+        resp.on('end', () => {
+            try {
+                const parsedData = JSON.parse(rawData);
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(parsedData));
+
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    }).on('error', function(e) {
+        console.log(e.message);
+    });
+});
+
+app.get('/picturesEndpoint*', function(req, res) {
+    var picturesQueryString = req.url.substring("/picturesEndpoint".length);
+    picturesQueryString += "&client_id=";
+    picturesQueryString += process.env.unsplashAPIKey;
+
+    var pictureUrl = "https://api.unsplash.com/search/photos" + picturesQueryString;
+    https.get(pictureUrl, (resp) => {
         let rawData = '';
         resp.on('data', (chunk) => {
             rawData += chunk;
