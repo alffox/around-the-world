@@ -510,6 +510,8 @@ var view = {
 
     renderNews: function(news, clickedLocationCountry, clickedLocationCountryCode) {
 
+        view.lazyLoad();
+
         for (var i = 0; i < news.articles.length; i++) {
             var newsPicture = news.articles[i].urlToImage;
             var newsTitle = news.articles[i].title;
@@ -517,7 +519,7 @@ var view = {
             var newsSource = news.articles[i].source.name;
 
             if (newsPicture !== null) {
-                var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 m-1"><img class="lazy img-fluid img-thumbnail news-picture" src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
+                var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 m-1"><img class="lazy img-fluid img-thumbnail news-picture" data-src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-primary badge-pill">' + newsSource + '</span></li></ul>');
             } else {
                 var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1 mb-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-secondary">' + newsSource + '</span></li></ul>');
             }
