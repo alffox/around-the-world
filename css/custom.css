@@ -29,6 +29,7 @@ a.navbar-brand {
 }
 .news-picture {
   width: 15%;
+  padding: 0rem;
 }
 .weather {
     color: #fff;
