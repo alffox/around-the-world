@@ -355,8 +355,9 @@ var octopus = {
     },
 
     getNews: function(clickedLocationCountry, clickedLocationCountryCode) {
-        var errorKey = '.news';
-        $('.news').empty();
+
+        var DOMKey = '.news';
+        view.cleanDOMContainer(DOMKey);
 
         var topRegionalNews = `${restAPIServer}/topHeadlinesEndpoint?pageSize=6&country=${clickedLocationCountryCode}`;
         var everythingEnglishNews = `${restAPIServer}/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=${clickedLocationCountry}`;
@@ -370,7 +371,7 @@ var octopus = {
                 url: allTopNews[i],
                 method: "GET",
                 error: function() {
-                    view.renderAPIError(errorKey);
+                    view.renderAPIError(DOMKey);
                 },
                 success: function(news) {
                     view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
@@ -382,7 +383,7 @@ var octopus = {
             url: everythingEnglishNews,
             method: "GET",
             error: function() {
-                view.renderAPIError(errorKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(news) {
                 view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
@@ -392,12 +393,15 @@ var octopus = {
     },
 
     getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
-        var errorKey = '.weather';
+
+        var DOMKey = '.weather';
+        view.cleanDOMContainer(DOMKey);
+
         $.ajax({
             url: `${restAPIServer}/weatherEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
             method: "GET",
             error: function() {
-                view.renderAPIError(errorKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(weather) {
                 view.renderWeather(weather, clickedLocation);
@@ -406,12 +410,15 @@ var octopus = {
     },
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
-        var errorKey = ".webcam";
+
+        var DOMKey = '.webcam';
+        view.cleanDOMContainer(DOMKey);
+
         $.ajax({
             url: `${restAPIServer}/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
             method: "GET",
             error: function() {
-                view.renderAPIError(errorKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(webcam) {
                 view.renderWebCam(webcam);
@@ -420,12 +427,15 @@ var octopus = {
     },
 
     getWiki: function(clickedLocationCountry) {
-        var errorKey = ".wiki";
+
+        var DOMKey = '.wiki';
+        view.cleanDOMContainer(DOMKey);
+
         $.ajax({
             url: `https://en.wikipedia.org/api/rest_v1/page/summary/${clickedLocationCountry}`,
             method: "GET",
             error: function() {
-                view.renderAPIError(errorKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(wiki) {
                 view.renderWiki(wiki);
@@ -434,14 +444,17 @@ var octopus = {
     },
 
     getPictures: function(clickedLocationCountry) {
-        var errorKey = ".pictures";
+
+        var DOMKey = '.pictures';
+        view.cleanDOMContainer(DOMKey);
+
         var randomPageNumber = Math.floor(Math.random() * 20);
 
         $.ajax({
             url: `${restAPIServer}/picturesEndpoint?page=${randomPageNumber}&query=${clickedLocationCountry}`,
             method: "GET",
             error: function() {
-                view.renderAPIError(errorKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(pictures) {
                 view.renderPictures(pictures);
@@ -453,7 +466,11 @@ var octopus = {
 
 var view = {
     renderAPIError: function(errorKey) {
-        $(errorKey).empty().append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+        $(DOMKey).append('<div class="alert alert-danger"><p>Sorry ! =(</p><p>There was an error while fetching the latest data</p></div>');
+    },
+
+    cleanDOMContainer: function(DOMKey) {
+        $(DOMKey).empty();
     },
 
     lazyLoad: function() {
@@ -517,7 +534,7 @@ var view = {
         var iconKey = weather.weather[0].icon;
         var iconURL = 'https://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").empty().append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
+        $(".weather").append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
 
     },
 
@@ -526,7 +543,7 @@ var view = {
         var webCamImageURL = webcam.result.webcams[0].image.current.preview;
         var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
 
-        $(".webcam").empty().append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
+        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
     },
 
     renderWiki: function(wiki) {
@@ -538,7 +555,7 @@ var view = {
         var wikiUrl = wiki.content_urls.mobile.page;
 
 
-        $(".wiki").empty().append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Wikipedia ...</a>");
+        $(".wiki").append("<p>" + wikiTitle + "</p>", "<p>" + wikiExtract + "</p>", "<a href=" + wikiUrl + ">Wikipedia ...</a>");
 
     },
 
@@ -577,7 +594,6 @@ var view = {
     },
 
     renderPictures: function(pictures) {
-        $(".pictures").empty();
 
         view.lazyLoad();
 
