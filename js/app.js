@@ -393,7 +393,7 @@ var octopus = {
 
     },
 
-    getWeather : function(clickedLocation, clickedLocationLat, clickedLocationLon) {
+    getWeather: function(clickedLocation, clickedLocationLat, clickedLocationLon) {
 
         var DOMKey = '.weather';
         view.cleanDOMContainer(DOMKey);
@@ -422,7 +422,7 @@ var octopus = {
                 view.cleanDOMContainer(DOMKey);
             },
             success: function(forecast) {
-                forecast = forecast.list.filter(item=>item.dt_txt.includes("12:00:00"));
+                forecast = forecast.list.filter(item => item.dt_txt.includes("12:00:00"));
                 view.renderWeatherForecast(forecast);
             }
         });
@@ -565,7 +565,7 @@ var view = {
 
         for (var i = 0; i < forecast.length; i++) {
 
-            $(".forecast").append('<div class="col-xs-2 px-4">' + forecast[i].dt_txt.substring(10,8) + '<br>' + '<img class="weather-icon" src="https://openweathermap.org/img/w/' + forecast[i].weather[0].icon + '.png' + '"><br>' + Math.round(forecast[i].main.temp)+' °C</div>');
+            $(".forecast").append('<div class="col-xs-2 px-4">' + forecast[i].dt_txt.substring(10, 8) + '<br>' + '<img class="weather-icon" src="https://openweathermap.org/img/w/' + forecast[i].weather[0].icon + '.png' + '"><br>' + Math.round(forecast[i].main.temp) + ' °C</div>');
         }
 
     },
