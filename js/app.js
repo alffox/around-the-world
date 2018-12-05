@@ -348,6 +348,7 @@ var octopus = {
 
         octopus.getNews(clickedLocationCountry, clickedLocationCountryCode);
         octopus.getWeather(clickedLocation, clickedLocationLat, clickedLocationLon);
+        octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
@@ -402,11 +403,9 @@ var octopus = {
             method: "GET",
             error: function() {
                 view.renderAPIError(DOMKey);
-                octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
             },
             success: function(weather) {
                 view.renderWeather(weather, clickedLocation);
-                octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
             }
         });
     },
@@ -556,7 +555,7 @@ var view = {
         var iconKey = weather.weather[0].icon;
         var iconURL = 'https://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
+        $(".weather").prepend('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
 
     },
 
