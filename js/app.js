@@ -347,7 +347,8 @@ var octopus = {
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
         octopus.getNews(clickedLocationCountry, clickedLocationCountryCode);
-        octopus.getWeather(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon);
+        octopus.getWeather(clickedLocation, clickedLocationLat, clickedLocationLon);
+        octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
@@ -392,7 +393,7 @@ var octopus = {
 
     },
 
-    getWeather: function(clickedLocation, clickedLocationCountryCode, clickedLocationLat, clickedLocationLon) {
+    getWeather : function(clickedLocation, clickedLocationLat, clickedLocationLon) {
 
         var DOMKey = '.weather';
         view.cleanDOMContainer(DOMKey);
@@ -405,6 +406,24 @@ var octopus = {
             },
             success: function(weather) {
                 view.renderWeather(weather, clickedLocation);
+            }
+        });
+    },
+
+    getWeatherForecast: function(clickedLocationLat, clickedLocationLon) {
+
+        var DOMKey = '.weather-forecast';
+        view.cleanDOMContainer(DOMKey);
+
+        $.ajax({
+            url: `${restAPIServer}/forecastEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
+            method: "GET",
+            error: function() {
+                view.cleanDOMContainer(DOMKey);
+            },
+            success: function(forecast) {
+                forecast = forecast.list.filter(item=>item.dt_txt.includes("12:00:00"));
+                view.renderWeatherForecast(forecast);
             }
         });
     },
@@ -537,6 +556,17 @@ var view = {
         var iconURL = 'https://openweathermap.org/img/w/' + iconKey + '.png';
 
         $(".weather").append('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
+
+    },
+
+    renderWeatherForecast: function(forecast) {
+
+        $(".weather").append('<div class="row forecast text-center"><div class="col-xs-4 px-4">Next Days</div>');
+
+        for (var i = 0; i < forecast.length; i++) {
+
+            $(".forecast").append('<div class="col-xs-2 px-4">' + forecast[i].dt_txt.substring(10,8) + '<br>' + '<img class="weather-icon" src="https://openweathermap.org/img/w/' + forecast[i].weather[0].icon + '.png' + '"><br>' + Math.round(forecast[i].main.temp)+' °C</div>');
+        }
 
     },
 

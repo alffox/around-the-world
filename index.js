@@ -105,6 +105,33 @@ app.get('/weatherEndpoint*', function(req, res) {
     });
 });
 
+app.get('/forecastEndpoint*', function(req, res) {
+    var wheatherQueryString = req.url.substring("/forecastEndpoint".length);
+    wheatherQueryString += "&appid=";
+    wheatherQueryString += process.env.weatherAPIKey;
+
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast" + wheatherQueryString;
+    https.get(weatherUrl, (resp) => {
+        let rawData = '';
+        resp.on('data', (chunk) => {
+            rawData += chunk;
+        });
+        resp.on('end', () => {
+            try {
+                const parsedData = JSON.parse(rawData);
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(parsedData));
+
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    }).on('error', function(e) {
+        console.log(e.message);
+    });
+});
+
 app.get('/webcamEndpoint*', function(req, res) {
     var queryParams = query.parse(req.url.substring("/webcamEndpoint?".length));
 
