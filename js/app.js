@@ -348,7 +348,6 @@ var octopus = {
 
         octopus.getNews(clickedLocationCountry, clickedLocationCountryCode);
         octopus.getWeather(clickedLocation, clickedLocationLat, clickedLocationLon);
-        octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
         octopus.getWebCam(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode);
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
@@ -403,9 +402,11 @@ var octopus = {
             method: "GET",
             error: function() {
                 view.renderAPIError(DOMKey);
+                octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
             },
             success: function(weather) {
                 view.renderWeather(weather, clickedLocation);
+                octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
             }
         });
     },
