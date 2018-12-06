@@ -35,10 +35,19 @@ a.navbar-brand {
     color: #fff;
     background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
 }
-.weather-icon {
+.weather-icon-main {
     width: 64px;
     height: 64px;
     min-height: 64px;
+}
+.weather-icon-next-days {
+    width: 35px;
+    height: 35px;
+    min-height: 28px;
+}
+.next-days {
+  width: 20%;
+  font-size: 0.75rem;
 }
 .webcam-picture {
     width: 100%;

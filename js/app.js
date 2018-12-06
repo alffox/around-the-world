@@ -555,19 +555,17 @@ var view = {
         var iconKey = weather.weather[0].icon;
         var iconURL = 'https://openweathermap.org/img/w/' + iconKey + '.png';
 
-        $(".weather").prepend('<p>' + clickedLocation + '</p>', '<img class="weather-icon" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p>');
-
+        $(".weather").prepend('<p>' + clickedLocation + '</p>', '<img class="weather-icon-main" src="' + iconURL + '">', '<p>' + temperature + " °C, " + weatherDescription + '</p><hr>');
     },
 
     renderWeatherForecast: function(forecast) {
 
-        $(".weather").append('<div class="row forecast text-center"><div class="col-xs-4 px-4">Next Days</div>');
+        $(".weather").append('<div class="row forecast text-center">');
 
         for (var i = 0; i < forecast.length; i++) {
 
-            $(".forecast").append('<div class="col-xs-2 px-4">' + forecast[i].dt_txt.substring(10, 8) + '<br>' + '<img class="weather-icon" src="https://openweathermap.org/img/w/' + forecast[i].weather[0].icon + '.png' + '"><br>' + Math.round(forecast[i].main.temp) + ' °C</div>');
+            $(".forecast").append('<div class="col-xs-2 next-days"><span class="font-weight-bold">' + forecast[i].dt_txt.substring(10,8) + '</span><br>' + '<img class="weather-icon-next-days" src="https://openweathermap.org/img/w/' + forecast[i].weather[0].icon + '.png' + '"><br>' + Math.round(forecast[i].main.temp)+' °C</div>');
         }
-
     },
 
     renderWebCam: function(webcam) {
