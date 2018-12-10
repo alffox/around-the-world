@@ -364,6 +364,17 @@ var octopus = {
         var everythingEnglishNews = `${restAPIServer}/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=${clickedLocationCountry}`;
         var topTechNews = `${restAPIServer}/topHeadlinesEndpoint?category=technology&pageSize=4&country=${clickedLocationCountryCode}`;
 
+        $.ajax({
+            url: everythingEnglishNews,
+            method: "GET",
+            error: function() {
+                view.renderAPIError(DOMKey);
+            },
+            success: function(news) {
+                view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
+            }
+        });
+
         var allTopNews = [topRegionalNews, topTechNews];
 
         for (var i = 0; i < allTopNews.length; i++) {
@@ -378,17 +389,6 @@ var octopus = {
                 }
             });
         }
-
-        $.ajax({
-            url: everythingEnglishNews,
-            method: "GET",
-            error: function() {
-                view.renderAPIError(DOMKey);
-            },
-            success: function(news) {
-                view.renderNews(news, clickedLocationCountry, clickedLocationCountryCode);
-            }
-        });
 
     },
 
