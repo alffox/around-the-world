@@ -363,9 +363,8 @@ var octopus = {
         var topRegionalNews = `${restAPIServer}/topHeadlinesEndpoint?pageSize=6&country=${clickedLocationCountryCode}`;
         var everythingEnglishNews = `${restAPIServer}/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=${clickedLocationCountry}`;
         var topTechNews = `${restAPIServer}/topHeadlinesEndpoint?category=technology&pageSize=4&country=${clickedLocationCountryCode}`;
-        var topSportsNews = `${restAPIServer}/topHeadlinesEndpoint?category=sports&pageSize=2&country=${clickedLocationCountryCode}`;
 
-        var allTopNews = [topRegionalNews, topTechNews, topSportsNews];
+        var allTopNews = [topRegionalNews, topTechNews];
 
         for (var i = 0; i < allTopNews.length; i++) {
             $.ajax({
@@ -431,7 +430,6 @@ var octopus = {
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
 
         var DOMKey = $('.webcam');
-        //view.cleanDOMContainer(DOMKey);
 
         $.ajax({
             url: `${restAPIServer}/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
