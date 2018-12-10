@@ -419,7 +419,7 @@ var octopus = {
             url: `${restAPIServer}/forecastEndpoint?lat=${clickedLocationLat}&lon=${clickedLocationLon}&units=metric`,
             method: "GET",
             error: function() {
-                view.cleanDOMContainer(DOMKey);
+                view.renderAPIError(DOMKey);
             },
             success: function(forecast) {
                 forecast = forecast.list.filter(item => item.dt_txt.includes("12:00:00"));
@@ -430,8 +430,8 @@ var octopus = {
 
     getWebCam: function(clickedLocationLat, clickedLocationLon, clickedLocationCountryCode) {
 
-        var DOMKey = '.webcam';
-        view.cleanDOMContainer(DOMKey);
+        var DOMKey = $('.webcam');
+        //view.cleanDOMContainer(DOMKey);
 
         $.ajax({
             url: `${restAPIServer}/webcamEndpoint?countryCode=${clickedLocationCountryCode}&lat=${clickedLocationLat}&lon=${clickedLocationLon}`,
@@ -447,7 +447,7 @@ var octopus = {
 
     getWiki: function(clickedLocationCountry) {
 
-        var DOMKey = '.wiki';
+        var DOMKey = $('.wiki');
         view.cleanDOMContainer(DOMKey);
 
         $.ajax({
@@ -464,7 +464,7 @@ var octopus = {
 
     getPictures: function(clickedLocationCountry) {
 
-        var DOMKey = '.pictures';
+        var DOMKey = $('.pictures');
         view.cleanDOMContainer(DOMKey);
 
         var randomPageNumber = Math.floor(Math.random() * 20);
@@ -570,10 +570,21 @@ var view = {
 
     renderWebCam: function(webcam) {
 
-        var webCamImageURL = webcam.result.webcams[0].image.current.preview;
-        var webCamLocation = webcam.result.webcams[0].location.city + ", " + webcam.result.webcams[0].location.region + ", " + webcam.result.webcams[0].location.country;
+        $(".carousel-indicators").empty();
+        $(".carousel-inner").empty();
 
-        $(".webcam").append('<img class="img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p>');
+        for (var i = 0; i < webcam.result.webcams.length; i++) {
+
+        var webCamImageURL = webcam.result.webcams[i].image.current.preview;
+        var webCamAltText = webcam.result.webcams[i].title;
+        var webCamLocation = webcam.result.webcams[i].location.city + ", " + webcam.result.webcams[i].location.region + ", " + webcam.result.webcams[i].location.country;
+
+        $(".carousel-indicators").append('<li data-target="#carouselExampleIndicators" data-slide-to=' + i + ' class="active"></li>');
+
+        $(".carousel-inner").append('<div class="carousel-item"><img class="d-block w-100 img-fluid img-thumbnail webcam-picture" src="' + webCamImageURL + '" alt="'+ webCamAltText + '"><p><small class="font-italic"> ' + webCamLocation + ' </small></p></div>');
+        }
+        $('.carousel-item:first-child').addClass('active');
+
     },
 
     renderWiki: function(wiki) {
