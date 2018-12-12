@@ -67,16 +67,6 @@ a.navbar-brand {
 .card-header {
     padding: 0.25rem 1.25rem;
 }
-.map-container {
-    height:20%;
-}
-.map{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
 .flag-button {
     width: 41px;
     height: 28px;
