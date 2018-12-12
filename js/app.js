@@ -643,7 +643,7 @@ var view = {
             var pictureAuthorURL = pictures.results[i].user.links.html;
             var pictureDescription = pictures.results[i].description;
 
-            $(".pictures").append('<figure><div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><figcaption><p>' + pictureDescription + '</p></figcaption>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div><figure>');
+            $(".pictures").append('<div class="card text-center"><img class="card-img-top img-fluid lazy" data-src=' + pictureURL + ' alt="' + pictureDescription + '"><div class="card-block"><small class="text-muted"><p>' + pictureDescription + '</p>by <a href="' + pictureAuthorURL + '" target="_blank">' + pictureAuthorUsername + '</a> via <a href="https://unsplash.com/" target="_blank">Unsplash</a></small></p></div></div>');
         }
     }
 
