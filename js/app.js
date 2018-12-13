@@ -172,6 +172,19 @@ var model = {
             }
         },
         {
+            "title": "Helsinki",
+            "continent": "Europe",
+            "country": "Finland",
+            "ISO_3166_1_alpha_2": "fi",
+            "state_name": "",
+            "state_code": "",
+            "language": "fi",
+            "location": {
+                "lat": 60.169856,
+                "lon": 24.938379
+            }
+        },
+        {
             "title": "Paris",
             "continent": "Europe",
             "country": "France",
