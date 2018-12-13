@@ -18,14 +18,31 @@ And also: What's going on at my location at the moment ? How can I get useful in
 **Around the World** would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a popular song of the late 90's: https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)
 
 ## How to run this app ?
-1) Openthe live site at: https://liferay-aroundtheworld.wedeploy.io/
+1) Open the live site at: https://liferay-aroundtheworld.wedeploy.io/
 2) To switch location, simply click on the buttons with the flags or in the continent's dropdown lists in the navbar
 
 ## Can I edit the location list ?
 
 Yes. To add or modify locations:
 
-1) Simply edit the _model_ variable inside $project_root/js/app.js and populate the json array with your favorite choices
+1) Simply edit the _model_ variable inside $project_root/js/app.js and populate the json array with your favorite choices:
+
+```
+{
+    "title": "", //(Required. Location's city name)
+    "continent": "Europe", //(Required. Location's city continent. Possible choices are: Americas, Europe, Africa, Asia-Pacific)
+    "country": "Finland", //(Required. Location's city country)
+    "ISO_3166_1_alpha_2": "fi", // (Required. Location's city ISO 3166 1 alpha 2 code, 2 digits, lower case. Use this site as reference: https://en.wikipedia.org/wiki/ISO_3166-2)
+    "state_name": "", (Optional. Location's city state name)
+    "state_code": "", (Optional. Location's city state code)
+    "language": "fi", (Required. Location's most spoken language, ISO 639-1 Code format, 2 digits, lower case. Use this list as reference: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+    "location": {
+        "lat": 60.169856, // (Required. Location's latitude. Use this site to find it: https://google-developers.appspot.com/maps/documentation/utils/geocoder/)
+        "lon": 24.938379 // (Required. Location's longitude. Use this site to find it: https://google-developers.appspot.com/maps/documentation/utils/geocoder/)
+    }
+},
+```
+
 2) Ensure the $project_root/css/custom.css contains the class that will draw the relevant flag. If not present, add it in the same _base64_ format of the others
 
 ## Technical details
