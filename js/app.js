@@ -375,6 +375,7 @@ var octopus = {
     setCurrentLocation: function(locations, index) {
         var clickedLocation = locations[index].title;
         var clickedLocationCountryCode = locations[index].ISO_3166_1_alpha_2;
+        var clickedLocationTimezone = locations[index].timezone_database_name;
         var clickedLocationCountry = locations[index].country;
         var clickedLocationStateName = locations[index].state_name;
         var clickedLocationLat = locations[index].location.lat;
@@ -382,6 +383,7 @@ var octopus = {
 
         view.renderLocationNavbar(clickedLocation, clickedLocationCountry, clickedLocationCountryCode);
 
+        octopus.getTimeDate(clickedLocationTimezone);
         octopus.getNews(clickedLocationCountry, clickedLocationCountryCode);
         octopus.getWeather(clickedLocation, clickedLocationLat, clickedLocationLon);
         octopus.getWeatherForecast(clickedLocationLat, clickedLocationLon);
@@ -389,6 +391,23 @@ var octopus = {
         octopus.getWiki(clickedLocationCountry);
         octopus.getPictures(clickedLocationCountry);
         view.renderMap(clickedLocationLat, clickedLocationLon, clickedLocation);
+    },
+
+    getTimeDate: function(clickedLocationTimezone) {
+        var DOMKey = '.timedate';
+        view.cleanDOMContainer(DOMKey);
+
+        $.ajax({
+            url: `${restAPIServer}/TimeDateEndpoint?format=json&by=zone&zone=${clickedLocationTimezone}`,
+            method: "GET",
+            error: function() {
+                view.renderAPIError(DOMKey);
+            },
+            success: function(timedate) {
+                console.log(timedate);
+                view.renderTimeDate(timedate);
+            }
+        });
     },
 
     getNews: function(clickedLocationCountry, clickedLocationCountryCode) {
@@ -534,6 +553,14 @@ var view = {
 
     renderLocationNavbar: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
         $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div>');
+    },
+
+    renderTimeDate: function(timeDate){
+
+        var time = timeDate.formatted;
+        console.log("date time is: " + time);
+
+        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + time + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span>');
     },
 
     renderLocations: function(locations) {

@@ -22,6 +22,34 @@ app.get('/js*', function(req, res) {
     res.sendFile(path.join(__dirname + req.url));
 });
 
+app.get('/TimeDateEndpoint*', function(req, res) {
+
+    var timeDateQueryString = req.url.substring("/TimeDateEndpoint".length);
+    timeDateQueryString += "&key=";
+    timeDateQueryString += process.env.timeDateAPIKey;
+
+    var timeDateUrl = "https://api.timezonedb.com/v2.1/get-time-zone" + timeDateQueryString;
+    https.get(timeDateUrl, (resp) => {
+        let rawData = '';
+        resp.on('data', (chunk) => {
+            rawData += chunk;
+        });
+        resp.on('end', () => {
+            try {
+                const parsedData = JSON.parse(rawData);
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(parsedData));
+
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    }).on('error', function(e) {
+        console.log(e.message);
+    });
+});
+
 app.get('/topHeadlinesEndpoint*', function(req, res) {
 
     var newsQueryString = req.url.substring("/topHeadlinesEndpoint".length);
