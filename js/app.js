@@ -560,7 +560,7 @@ var view = {
         var time = timeDate.formatted;
         console.log("date time is: " + time);
 
-        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + time + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span>');
+        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + time + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span><p><small>Powered by <a href="https://timezonedb.com">TimeZoneDB.com </a></small></p>');
     },
 
     renderLocations: function(locations) {
