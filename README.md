@@ -27,22 +27,19 @@ Yes. To add or modify locations:
 
 1) Edit the _model_ variable inside $project_root/js/app.js and populate the json array with the location of your choice:
 
-```
+
 {
-    "title": "", //(Required. Location's city name)
-    "continent": "Europe", //(Required. Location's city continent. Possible choices are: Americas, Europe, Africa, Asia-Pacific)
-    "country": "Finland", //(Required. Location's city country)
-    "ISO_3166_1_alpha_2": "fi", // (Required. Location's city ISO 3166 1 alpha 2 code, 2 digits, lower case. Use this site as reference: https://en.wikipedia.org/wiki/ISO_3166-2)
-    "timezone_database_name": "Europe/Helsinki" //(Required. Use a value from the "Time Zone" column of this list: https://timezonedb.com/time-zones)
-    "state_name": "", (Optional. Location's city state name)
-    "state_code": "", (Optional. Location's city state code)
-    "language": "fi", (Required. Location's most spoken language, ISO 639-1 Code format, 2 digits, lower case. Use this list as reference: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-    "location": {
-        "lat": 60.169856, // (Required. Location's latitude. Use this site to find it: https://google-developers.appspot.com/maps/documentation/utils/geocoder/)
-        "lon": 24.938379 // (Required. Location's longitude. Use this site to find it: https://google-developers.appspot.com/maps/documentation/utils/geocoder/)
+    * **title**: Required. Location's city name
+    * **continent**: Required. Location's city continent. Possible choices are: Americas, Europe, Africa, Asia-Pacific)
+    * **country**: Required. Location's city country
+    * **ISO_3166_1_alpha_2**: Required. Location's city ISO 3166 1 alpha 2 code, 2 digits, lower case. Use this site as reference: https://en.wikipedia.org/wiki/ISO_3166-2
+    * **timezone_database_name**: Required. Use a value from the "Time Zone" column of this list: https://timezonedb.com/time-zones
+    **state_name**: Optional. Location's city state name
+    **state_code**: Optional. Location's city state code
+    * **language**: Required. Location's most spoken language, ISO 639-1 Code format, 2 digits, lower case. Use this list as reference: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+    * **location**: Required. Location's latitude and longitude. Use this site to find them: https://google-developers.appspot.com/maps/documentation/utils/geocoder/
     }
-},
-```
+
 
 2) Ensure the $project_root/css/custom.css contains the class that will draw the relevant flag. If not present, add it in the same _base64_ format of the others
 
