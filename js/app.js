@@ -559,7 +559,7 @@ var view = {
         var date = timeDate.formatted.substr(0,timeDate.formatted.indexOf(' '));
         var time = timeDate.formatted.substr(timeDate.formatted.indexOf(' ')+1);
 
-        $('.timedate').empty().append('<div class="timedate-value">' + date + ', ' + time + '</div>');
+        $('.timedate').empty().append('<div class="timedate-value"><i class="pr-1 far fa-calendar-alt"></i>' + date + ', ' + '<i class="pr-1 far fa-clock"></i>' + time + '</div>');
     },
 
     renderLocations: function(locations) {
