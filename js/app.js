@@ -404,7 +404,6 @@ var octopus = {
                 view.renderAPIError(DOMKey);
             },
             success: function(timedate) {
-                console.log(timedate);
                 view.renderTimeDate(timedate);
             }
         });
@@ -552,7 +551,7 @@ var view = {
     },
 
     renderLocationNavbar: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
-        $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div>');
+        $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div><div class="timedate"></div>');
     },
 
     renderTimeDate: function(timeDate){
@@ -560,10 +559,7 @@ var view = {
         var date = timeDate.formatted.substr(0,timeDate.formatted.indexOf(' '));
         var time = timeDate.formatted.substr(timeDate.formatted.indexOf(' ')+1);
 
-        console.log("date is: " + date);
-        console.log("time is: " + time);
-
-        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + date + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span><br><small class="text-muted">Powered by <a href="https://timezonedb.com">TimeZoneDB.com </a></small>');
+        $('.timedate').empty().append('<div class="timedate-value">' + date + ', ' + time + '</div>');
     },
 
     renderLocations: function(locations) {

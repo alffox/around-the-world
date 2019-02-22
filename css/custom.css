@@ -11,6 +11,9 @@ html {
 a.navbar-brand {
     color: #fff !important;
 }
+.timedate-value {
+    font-size: 0.75em;
+}
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 }
