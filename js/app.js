@@ -551,7 +551,7 @@ var view = {
     },
 
     renderLocationNavbar: function(clickedLocation, clickedLocationCountry, clickedLocationCountryCode) {
-        $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div><div class="timedate"></div>');
+        $('.navbar-brand').empty().append('<div class="' + clickedLocationCountryCode + ' flag-navbar mx-auto"></div><div>' + clickedLocation + ', ' + clickedLocationCountry + '</div><div class="timedate text-center font-italic"></div>');
     },
 
     renderTimeDate: function(timeDate){
