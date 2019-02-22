@@ -557,10 +557,13 @@ var view = {
 
     renderTimeDate: function(timeDate){
 
-        var time = timeDate.formatted;
-        console.log("date time is: " + time);
+        var date = timeDate.formatted.substr(0,timeDate.formatted.indexOf(' '));
+        var time = timeDate.formatted.substr(timeDate.formatted.indexOf(' ')+1);
 
-        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + time + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span><p><small>Powered by <a href="https://timezonedb.com">TimeZoneDB.com </a></small></p>');
+        console.log("date is: " + date);
+        console.log("time is: " + time);
+
+        $('.timedate').append('<i class="far fa-calendar-alt mr-1"></i><span>' + date + '</span><br><i class="far fa-clock mr-1"></i><span>' + time + '</span><br><small class="text-muted">Powered by <a href="https://timezonedb.com">TimeZoneDB.com </a></small>');
     },
 
     renderLocations: function(locations) {
