@@ -25,7 +25,7 @@ And also: What's going on at my location at the moment ? How can I get useful in
 
 Yes. To add or modify locations:
 
-1) Simply edit the _model_ variable inside $project_root/js/app.js and populate the json array with your favorite choices:
+1) Edit the _model_ variable inside $project_root/js/app.js and populate the json array with the location of your choice:
 
 ```
 {
@@ -33,6 +33,7 @@ Yes. To add or modify locations:
     "continent": "Europe", //(Required. Location's city continent. Possible choices are: Americas, Europe, Africa, Asia-Pacific)
     "country": "Finland", //(Required. Location's city country)
     "ISO_3166_1_alpha_2": "fi", // (Required. Location's city ISO 3166 1 alpha 2 code, 2 digits, lower case. Use this site as reference: https://en.wikipedia.org/wiki/ISO_3166-2)
+    "timezone_database_name": "Europe/Helsinki" //(Required. Use a value from the "Time Zone" column of this list: https://timezonedb.com/time-zones)
     "state_name": "", (Optional. Location's city state name)
     "state_code": "", (Optional. Location's city state code)
     "language": "fi", (Required. Location's most spoken language, ISO 639-1 Code format, 2 digits, lower case. Use this list as reference: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
@@ -44,6 +45,21 @@ Yes. To add or modify locations:
 ```
 
 2) Ensure the $project_root/css/custom.css contains the class that will draw the relevant flag. If not present, add it in the same _base64_ format of the others
+
+## Information displayed
+The **Navigation bar** displays the currently selected location, the current date and time at that location and other available locations, ordered in dropdown lists by continents
+
+**Latest local news** displays the recent local news for the selected country ordered like this: 6 top headlines in the local language, 8 top headlines in English, 2 top headlines news about technical topics in English. All news will show the source where they come from and a picture, as long as that is present and served through https protocol
+
+**Weather** displays the weather and temperature at the selected location and forecasts for the next 5 days
+
+**Map** represents the currently selected location on Google Maps
+
+**Nearby web cams** shows 10 web cams snapshots in a slider, taken at the current location and time
+
+**Wiki** shows the first information for the selected country from Wikipedia.org
+
+**Pictures** at the bottom shows selected pictures for the selected country
 
 ## Technical details
 The app is optimized for being used on mobile devices
@@ -69,3 +85,4 @@ Due to the amount of operations the app does and could do in the future with new
 - [Wikipedia](https://en.wikipedia.org)
 - [Unsplash](https://unsplash.com/)
 - [GoogleMaps API](https://developers.google.com/maps/documentation/)
+- [TimeZoneDB.com](https://timezonedb.com/)
