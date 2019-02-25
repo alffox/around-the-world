@@ -217,7 +217,7 @@ var model = {
             "continent": "Europe",
             "country": "The Netherlands",
             "ISO_3166_1_alpha_2": "nl",
-            "timezone_database_name": "Europe/Amsterdams",
+            "timezone_database_name": "Europe/Amsterdam",
             "state_name": "South Holland",
             "state_code": "",
             "language": "nl",
