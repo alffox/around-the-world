@@ -17,10 +17,6 @@ And also: What's going on at my location at the moment ? How can I get useful in
 
 **Around the World** would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a popular song of the late 90's: https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)
 
-## How to run this app ?
-1) Open the live site at: https://liferay-aroundtheworld.wedeploy.io/
-2) To switch location, simply click on the buttons with the flags or in the continent's dropdown lists in the navbar
-
 ## Can I edit the location list ?
 
 Yes. To add or modify locations:
