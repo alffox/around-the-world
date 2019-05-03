@@ -1,4 +1,4 @@
-var restAPIServer = 'https://liferay-around-the-world.netlify.com';
+var restAPIServer = 'https://liferay-around-the-world.herokuapp.com';
 
 var model = {
 
