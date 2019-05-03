@@ -1,4 +1,4 @@
-var restAPIServer = 'https://liferay-aroundtheworld.wedeploy.io';
+var restAPIServer = 'https://liferay-around-the-world.netlify.com';
 
 var model = {
 
