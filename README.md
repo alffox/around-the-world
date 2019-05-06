@@ -2,6 +2,8 @@
 
 # Liferay Around the World
 
+See the live app at: https://liferay-around-the-world.herokuapp.com/
+
 Liferay Around the World is a Single Page Application showing information for Liferay locations around the world: https://www.liferay.com/locations
 
 All APIs have been used for demo, non-commercial purposes. You may read more here: https://github.com/alffox/around-the-world#api--credit
