@@ -4,9 +4,12 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
+const cors = require('cors')
+
 const port = process.env.PORT || 5000
 
 app.use(morgan('combined'));
+app.use(cors());
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
