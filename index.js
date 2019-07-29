@@ -173,13 +173,13 @@ app.get('/webcamEndpoint*', function(req, res) {
     }
 
     var options = {
-        host: 'webcamstravel.p.mashape.com',
+        host: 'webcamstravel.p.rapidapi.com',
         port: 443,
         path: api,
         method: 'GET',
         headers: {
-            "X-Mashape-Key": process.env.webCamAPIKey,
-            "X-Mashape-Host": "webcamstravel.p.mashape.com"
+            "X-Rapidapi-Key": process.env.webCamAPIKey,
+            "X-Rapidapi-Host": "webcamstravel.p.rapidapi.com"
         }
     };
 
