@@ -70,6 +70,7 @@ app.get('/topHeadlinesEndpoint*', function(req, res) {
                 const parsedData = JSON.parse(rawData);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
+                res.set('Cache-Control', 'max-age=120');
                 res.end(JSON.stringify(parsedData));
 
             } catch (e) {
@@ -98,6 +99,7 @@ app.get('/everythingNewsEndpoint*', function(req, res) {
                 const parsedData = JSON.parse(rawData);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
+                res.set('Cache-Control', 'max-age=120');
                 res.end(JSON.stringify(parsedData));
 
             } catch (e) {
@@ -125,6 +127,7 @@ app.get('/weatherEndpoint*', function(req, res) {
                 const parsedData = JSON.parse(rawData);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
+                res.set('Cache-Control', 'max-age=120');
                 res.end(JSON.stringify(parsedData));
 
             } catch (e) {
