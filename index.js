@@ -155,6 +155,7 @@ app.get('/forecastEndpoint*', function(req, res) {
                 const parsedData = JSON.parse(rawData);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
+                res.setHeader('Cache-Control', 'max-age=21600');
                 res.end(JSON.stringify(parsedData));
 
             } catch (e) {
