@@ -1,4 +1,4 @@
-var restAPIServer = "https://liferay-around-the-world.herokuapp.com";
+var restAPIServer = "https://around-the-world-backend.herokuapp.com";
 
 var model = {
   locations: [
